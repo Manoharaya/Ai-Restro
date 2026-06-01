@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GastroAI JavaScript Core Logic
+   RestroAI JavaScript Core Logic
    ========================================================================== */
 
 // Initialize components when the DOM is fully loaded
@@ -100,7 +100,7 @@ function initNavigation() {
 }
 
 /* ==========================================================================
-   GastroAI Assistant (Chat Interface)
+   RestroAI Assistant (Chat Interface)
    ========================================================================== */
 const AI_RESPONSES = {
   staff: `<h4>Dinner Service Staffing Risk</h4>
@@ -140,7 +140,7 @@ const AI_RESPONSES = {
               <p><strong>Action Recommended:</strong> Reorder from our fast-delivery supplier immediately or update the AI Prep Planner to promote high-margin alternatives.</p>`,
               
   menu: `<h4>Menu & Kitchen Operations Recommendations</h4>
-         <p>To optimize kitchen prep capacity and food margins, GastroAI recommends the following dinner strategies:</p>
+         <p>To optimize kitchen prep capacity and food margins, RestroAI recommends the following dinner strategies:</p>
          <ul>
            <li><strong>Feature:</strong> Promote our Seafood Pasta tonight. It carries a 78% profit margin and is highly rated by return guests.</li>
            <li><strong>Alternative:</strong> If salmon stocks run out, swap the pan-seared salmon feature for pan-roasted cod, matching prep styles.</li>
@@ -363,9 +363,9 @@ window.copyNoteToClipboard = function() {
    Guest Outreach Hub
    ========================================================================== */
 const COMMS_TEMPLATES = {
-  sms: "Hi there! Hungry? Join us for our Bistro Express Lunch this Friday. Choose a signature main and wine pairing for just $22. Book now: gastroai.rest/lunch",
-  email: "Subject: Exclusive Weekday Express Lunch Offer - GastroAI Bistro\n\nDear Local Partner,\n\nWe know how busy the workday can get, which is why we've launched our new Bistro Express Lunch menu designed specifically for nearby professionals.\n\nEnjoy our handmade signature pastas, crispy artisanal salads, and paired premium drinks, prepared and served in under 40 minutes to fit your schedule.\n\nBook Your Friday Table: gastroai.rest/lunch\n\nWarm regards,\nChef & Bistro Service Team",
-  whatsapp: "👋 Hi VIP Guest! Chef here at Bistro. 🍷\n\nWe noticed you have a reservation request pending confirmation for tonight's peak dinner service. We have a waitlist in effect, so please reply 'YES' to confirm your seat, or tap below to modify. Link: gastroai.rest/book"
+  sms: "Hi there! Hungry? Join us for our Bistro Express Lunch this Friday. Choose a signature main and wine pairing for just $22. Book now: restroai.rest/lunch",
+  email: "Subject: Exclusive Weekday Express Lunch Offer - RestroAI Bistro\n\nDear Local Partner,\n\nWe know how busy the workday can get, which is why we've launched our new Bistro Express Lunch menu designed specifically for nearby professionals.\n\nEnjoy our handmade signature pastas, crispy artisanal salads, and paired premium drinks, prepared and served in under 40 minutes to fit your schedule.\n\nBook Your Friday Table: restroai.rest/lunch\n\nWarm regards,\nChef & Bistro Service Team",
+  whatsapp: "👋 Hi VIP Guest! Chef here at Bistro. 🍷\n\nWe noticed you have a reservation request pending confirmation for tonight's peak dinner service. We have a waitlist in effect, so please reply 'YES' to confirm your seat, or tap below to modify. Link: restroai.rest/book"
 };
 
 let currentChannel = 'sms';
@@ -485,7 +485,7 @@ window.actionAlert = function(actionType) {
     commsCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
     highlightCard(commsCard);
   } else if (actionType === 'waitlist') {
-    alert("Activating predictive waiting list... GastroAI has matched 3 VIP walk-in profiles with tonight's unconfirmed reservation slots. Automatic invite sent!");
+    alert("Activating predictive waiting list... RestroAI has matched 3 VIP walk-in profiles with tonight's unconfirmed reservation slots. Automatic invite sent!");
   } else if (actionType === 'promo') {
     setChannel('sms');
     const commsCard = document.getElementById('section-comms');
