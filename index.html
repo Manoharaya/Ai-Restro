@@ -31,31 +31,31 @@
         </div>
         <div class="brand-name">
           <h2>Restro<span>AI</span></h2>
-          <span class="brand-sub">Restaurant Intelligence</span>
+          <span class="brand-sub" data-i18n="brand-sub">Restaurant Intelligence</span>
         </div>
       </div>
       
       <nav class="sidebar-menu">
         <a href="#overview" class="menu-item active" id="nav-overview">
           <i data-lucide="layout-dashboard"></i>
-          <span>Dashboard</span>
+          <span data-i18n="menu-dashboard">Dashboard</span>
         </a>
         <a href="#alerts" class="menu-item" id="nav-alerts">
           <i data-lucide="bell"></i>
-          <span>AI Alerts</span>
+          <span data-i18n="menu-alerts">AI Alerts</span>
           <span class="badge badge-danger">4</span>
         </a>
         <a href="#assistant" class="menu-item" id="nav-assistant">
           <i data-lucide="message-square"></i>
-          <span>AI Assistant</span>
+          <span data-i18n="menu-assistant">AI Assistant</span>
         </a>
         <a href="#prep" class="menu-item" id="nav-notes">
           <i data-lucide="clipboard-list"></i>
-          <span>Prep Planner</span>
+          <span data-i18n="menu-prep">Prep Planner</span>
         </a>
         <a href="#comms" class="menu-item" id="nav-comms">
           <i data-lucide="mail"></i>
-          <span>Guest Hub</span>
+          <span data-i18n="menu-comms">Guest Hub</span>
         </a>
       </nav>
       
@@ -65,9 +65,10 @@
             <i data-lucide="utensils"></i>
           </div>
           <div class="practice-meta">
-            <span class="practice-name">Bistro Bistro</span>
+            <span class="practice-name" data-i18n="practice-name">Bistro Bistro</span>
             <span class="practice-status">
-              <span class="status-indicator online"></span> Kitchen Active
+              <span class="status-indicator online"></span>
+              <span data-i18n="practice-status">Kitchen Active</span>
             </span>
           </div>
         </div>
@@ -80,8 +81,8 @@
       <!-- Top Navigation Header -->
       <header class="top-header">
         <div class="header-left">
-          <h1 class="page-title">Intelligence Dashboard</h1>
-          <p class="page-subtitle">Welcome back. Here is your restaurant status for today's service.</p>
+          <h1 class="page-title" data-i18n="page-title">Intelligence Dashboard</h1>
+          <p class="page-subtitle" data-i18n="page-subtitle">Welcome back. Here is your restaurant status for today's service.</p>
         </div>
         
         <div class="header-right">
@@ -94,8 +95,13 @@
           <!-- Quick Status Indicator -->
           <div class="status-pill">
             <span class="pulse-ring"></span>
-            <span class="status-text">AI Co-pilot Active</span>
+            <span class="status-text" data-i18n="copilot-active">AI Co-pilot Active</span>
           </div>
+          
+          <!-- Language Toggle Button -->
+          <button id="lang-toggle" class="header-btn" title="Switch to Russian / Переключить на русский" style="font-weight: 700; font-size: 11px;">
+            RU
+          </button>
           
           <!-- Theme Toggle Button -->
           <button id="theme-toggle" class="header-btn" title="Toggle Light/Dark Theme">
@@ -113,7 +119,7 @@
           <!-- Card 1: Bookings -->
           <div class="metric-card">
             <div class="metric-card-header">
-              <span class="metric-title">Bookings Today</span>
+              <span class="metric-title" data-i18n="metric-title-bookings">Bookings Today</span>
               <div class="metric-icon bg-primary-soft">
                 <i data-lucide="users"></i>
               </div>
@@ -121,14 +127,14 @@
             <div class="metric-value" id="metric-bookings">86</div>
             <div class="metric-trend text-success">
               <i data-lucide="trending-up"></i>
-              <span>+18% vs last Mon</span>
+              <span data-i18n="metric-trend-bookings">+18% vs last Mon</span>
             </div>
           </div>
           
           <!-- Card 2: Occupancy -->
           <div class="metric-card">
             <div class="metric-card-header">
-              <span class="metric-title">Table Occupancy</span>
+              <span class="metric-title" data-i18n="metric-title-occupancy">Table Occupancy</span>
               <div class="metric-icon bg-success-soft">
                 <i data-lucide="percent"></i>
               </div>
@@ -142,7 +148,7 @@
           <!-- Card 3: Staff -->
           <div class="metric-card">
             <div class="metric-card-header">
-              <span class="metric-title">Staff On Shift</span>
+              <span class="metric-title" data-i18n="metric-title-staff">Staff On Shift</span>
               <div class="metric-icon bg-warning-soft">
                 <i data-lucide="users"></i>
               </div>
@@ -150,14 +156,14 @@
             <div class="metric-value" id="metric-staff">14</div>
             <div class="metric-trend text-warning">
               <i data-lucide="alert-circle"></i>
-              <span>Roster gaps predicted</span>
+              <span data-i18n="metric-trend-staff">Roster gaps predicted</span>
             </div>
           </div>
           
           <!-- Card 4: Revenue -->
           <div class="metric-card">
             <div class="metric-card-header">
-              <span class="metric-title">Projected Revenue</span>
+              <span class="metric-title" data-i18n="metric-title-revenue">Projected Revenue</span>
               <div class="metric-icon bg-info-soft">
                 <i data-lucide="dollar-sign"></i>
               </div>
@@ -165,7 +171,7 @@
             <div class="metric-value" id="metric-revenue">$18.6K</div>
             <div class="metric-trend text-success">
               <i data-lucide="trending-up"></i>
-              <span>+14.2% above target</span>
+              <span data-i18n="metric-trend-revenue">+14.2% above target</span>
             </div>
           </div>
           
@@ -179,9 +185,9 @@
             <div class="card-header">
               <div class="card-header-title">
                 <i data-lucide="shield-alert" class="text-danger"></i>
-                <h3>AI Priority Attention Center</h3>
+                <h3 data-i18n="alerts-title">AI Priority Attention Center</h3>
               </div>
-              <span class="badge badge-danger-soft">4 Actions Required</span>
+              <span class="badge badge-danger-soft" data-i18n="alerts-actions-count">4 Actions Required</span>
             </div>
             
             <div class="alerts-list">
@@ -189,14 +195,14 @@
               <div class="alert-item priority-high">
                 <div class="alert-content">
                   <div class="alert-meta">
-                    <span class="alert-tag bg-danger-soft text-danger">Staffing Risk</span>
-                    <span class="alert-time">Just Now</span>
+                    <span class="alert-tag bg-danger-soft text-danger" data-i18n="alert-tag-staffing">Staffing Risk</span>
+                    <span class="alert-time" data-i18n="alert-time-now">Just Now</span>
                   </div>
-                  <h4 class="alert-title">Understaffing: Dinner Service</h4>
-                  <p class="alert-desc">Dinner service is likely to be understaffed between 7:00–9:00pm. AI recommendation: Add one floor staff member and one kitchen runner to meet peak customer velocity.</p>
+                  <h4 class="alert-title" data-i18n="alert-title-staffing">Understaffing: Dinner Service</h4>
+                  <p class="alert-desc" data-i18n="alert-desc-staffing">Dinner service is likely to be understaffed between 7:00–9:00pm. AI recommendation: Add one floor staff member and one kitchen runner to meet peak customer velocity.</p>
                   <div class="alert-actions">
-                    <button class="btn btn-sm btn-primary" onclick="actionAlert('roster')">Modify Roster</button>
-                    <button class="btn btn-sm btn-secondary" onclick="openAlertDetails('understaffing')">View Coverage</button>
+                    <button class="btn btn-sm btn-primary" onclick="actionAlert('roster')" data-i18n="alert-btn-roster">Modify Roster</button>
+                    <button class="btn btn-sm btn-secondary" onclick="openAlertDetails('understaffing')" data-i18n="alert-btn-coverage">View Coverage</button>
                   </div>
                 </div>
               </div>
@@ -205,14 +211,14 @@
               <div class="alert-item priority-medium">
                 <div class="alert-content">
                   <div class="alert-meta">
-                    <span class="alert-tag bg-warning-soft text-warning">Inventory Warning</span>
-                    <span class="alert-time">1h ago</span>
+                    <span class="alert-tag bg-warning-soft text-warning" data-i18n="alert-tag-inventory">Inventory Warning</span>
+                    <span class="alert-time" data-i18n="alert-time-1h">1h ago</span>
                   </div>
-                  <h4 class="alert-title">Ingredient Shortages Detected</h4>
-                  <p class="alert-desc">Salmon, sparkling water, and tiramisu ingredients are running dangerously low. AI recommendation: Reorder before evening service to prevent stockouts.</p>
+                  <h4 class="alert-title" data-i18n="alert-title-inventory">Ingredient Shortages Detected</h4>
+                  <p class="alert-desc" data-i18n="alert-desc-inventory">Salmon, sparkling water, and tiramisu ingredients are running dangerously low. AI recommendation: Reorder before evening service to prevent stockouts.</p>
                   <div class="alert-actions">
-                    <button class="btn btn-sm btn-warning" onclick="actionAlert('reorder')">Reorder Stock</button>
-                    <button class="btn btn-sm btn-secondary" onclick="actionAlert('menu-tips')">Check Alternatives</button>
+                    <button class="btn btn-sm btn-warning" onclick="actionAlert('reorder')" data-i18n="alert-btn-reorder">Reorder Stock</button>
+                    <button class="btn btn-sm btn-secondary" onclick="actionAlert('menu-tips')" data-i18n="alert-btn-alternatives">Check Alternatives</button>
                   </div>
                 </div>
               </div>
@@ -221,14 +227,14 @@
               <div class="alert-item priority-medium">
                 <div class="alert-content">
                   <div class="alert-meta">
-                    <span class="alert-tag bg-warning-soft text-warning">Booking Risk</span>
-                    <span class="alert-time">2h ago</span>
+                    <span class="alert-tag bg-warning-soft text-warning" data-i18n="alert-tag-booking">Booking Risk</span>
+                    <span class="alert-time" data-i18n="alert-time-2h">2h ago</span>
                   </div>
-                  <h4 class="alert-title">High No-Show Probability</h4>
-                  <p class="alert-desc">6 bookings have a high no-show risk (exceeding 75% score based on historical patterns). AI recommendation: Send confirmation SMS and activate waitlist.</p>
+                  <h4 class="alert-title" data-i18n="alert-title-booking">High No-Show Probability</h4>
+                  <p class="alert-desc" data-i18n="alert-desc-booking">6 bookings have a high no-show risk (exceeding 75% score based on historical patterns). AI recommendation: Send confirmation SMS and activate waitlist.</p>
                   <div class="alert-actions">
-                    <button class="btn btn-sm btn-primary" onclick="actionAlert('confirm')">Send Confirm SMS</button>
-                    <button class="btn btn-sm btn-secondary" onclick="actionAlert('waitlist')">Enable Waitlist</button>
+                    <button class="btn btn-sm btn-primary" onclick="actionAlert('confirm')" data-i18n="alert-btn-sms">Send Confirm SMS</button>
+                    <button class="btn btn-sm btn-secondary" onclick="actionAlert('waitlist')" data-i18n="alert-btn-waitlist">Enable Waitlist</button>
                   </div>
                 </div>
               </div>
@@ -237,13 +243,13 @@
               <div class="alert-item priority-low">
                 <div class="alert-content">
                   <div class="alert-meta">
-                    <span class="alert-tag bg-success-soft text-success">Revenue Opportunity</span>
-                    <span class="alert-time">Morning Run</span>
+                    <span class="alert-tag bg-success-soft text-success" data-i18n="alert-tag-revenue">Revenue Opportunity</span>
+                    <span class="alert-time" data-i18n="alert-time-morning">Morning Run</span>
                   </div>
-                  <h4 class="alert-title">Low Friday Lunch Occupancy</h4>
-                  <p class="alert-desc">Friday lunch has low projected occupancy. AI recommendation: Launch a tailored weekday lunch promotion targeting nearby business offices.</p>
+                  <h4 class="alert-title" data-i18n="alert-title-revenue-opportunity">Low Friday Lunch Occupancy</h4>
+                  <p class="alert-desc" data-i18n="alert-desc-revenue">Friday lunch has low projected occupancy. AI recommendation: Launch a tailored weekday lunch promotion targeting nearby business offices.</p>
                   <div class="alert-actions">
-                    <button class="btn btn-sm btn-success" onclick="actionAlert('promo')">Start Campaign</button>
+                    <button class="btn btn-sm btn-success" onclick="actionAlert('promo')" data-i18n="alert-btn-campaign">Start Campaign</button>
                   </div>
                 </div>
               </div>
@@ -255,11 +261,11 @@
             <div class="card-header">
               <div class="card-header-title">
                 <i data-lucide="message-square" class="text-primary"></i>
-                <h3>RestroAI Assistant</h3>
+                <h3 data-i18n="assistant-title">RestroAI Assistant</h3>
               </div>
               <div class="ai-status">
                 <span class="status-indicator online"></span>
-                <span>Co-pilot Online</span>
+                <span data-i18n="assistant-status">Co-pilot Online</span>
               </div>
             </div>
             
@@ -269,22 +275,22 @@
                   <div class="msg-avatar">
                     <i data-lucide="bot"></i>
                   </div>
-                  <div class="msg-bubble">
-                    <p>Good evening! I am monitoring RestroAI's status. Ask me about bookings, staff coverage, inventory levels, revenue opportunities, or menu updates.</p>
+                  <div class="msg-bubble" id="chat-default-bubble">
+                    <p data-i18n="chat-default-msg">Good evening! I am monitoring RestroAI's status. Ask me about bookings, staff coverage, inventory levels, revenue opportunities, or menu updates.</p>
                   </div>
                 </div>
               </div>
               
               <!-- Quick Suggestions -->
               <div class="chat-suggestions">
-                <button class="suggestion-tag" onclick="sendSuggestion('Optimize dinner staff rosters')">Staff rosters</button>
-                <button class="suggestion-tag" onclick="sendSuggestion('Minimize tomorrow\'s booking no-show risks')">Booking risks</button>
-                <button class="suggestion-tag" onclick="sendSuggestion('Summary of daily revenue and sales performance')">Revenue forecast</button>
-                <button class="suggestion-tag" onclick="sendSuggestion('Reorder low inventory and stock')">Inventory warning</button>
+                <button class="suggestion-tag" onclick="sendSuggestion(currentLanguage === 'ru' ? 'Оптимизировать смены на ужин' : 'Optimize dinner staff rosters')" data-i18n="suggest-staff">Staff rosters</button>
+                <button class="suggestion-tag" onclick="sendSuggestion(currentLanguage === 'ru' ? 'Снизить риск неявки на завтра' : 'Minimize tomorrow\'s booking no-show risks')" data-i18n="suggest-booking">Booking risks</button>
+                <button class="suggestion-tag" onclick="sendSuggestion(currentLanguage === 'ru' ? 'Сводка выручки и продаж за день' : 'Summary of daily revenue and sales performance')" data-i18n="suggest-revenue">Revenue forecast</button>
+                <button class="suggestion-tag" onclick="sendSuggestion(currentLanguage === 'ru' ? 'Заказать недостающие запасы' : 'Reorder low inventory and stock')" data-i18n="suggest-inventory">Inventory warning</button>
               </div>
               
               <div class="chat-input-wrapper">
-                <input type="text" id="chat-input" placeholder="Type a message or kitchen instruction..." onkeydown="handleChatKey(event)">
+                <input type="text" id="chat-input" placeholder="Type a message or kitchen instruction..." data-i18n-placeholder="chat-input-placeholder" onkeydown="handleChatKey(event)">
                 <button id="chat-send" class="btn-icon" onclick="sendChatMessage()">
                   <i data-lucide="send"></i>
                 </button>
@@ -302,10 +308,10 @@
             <div class="card-header">
               <div class="card-header-title">
                 <i data-lucide="utensils" class="text-primary"></i>
-                <h3>Seating Area & Table Monitor</h3>
+                <h3 data-i18n="table-title">Seating Area & Table Monitor</h3>
               </div>
               <button class="btn btn-sm btn-secondary" onclick="refreshChairMonitor()">
-                <i data-lucide="refresh-cw"></i> Refresh
+                <i data-lucide="refresh-cw"></i> <span data-i18n="table-btn-refresh">Refresh</span>
               </button>
             </div>
             
@@ -313,11 +319,11 @@
               <table class="data-table">
                 <thead>
                   <tr>
-                    <th>Dining Area</th>
-                    <th>Tables Total</th>
-                    <th>Booked</th>
-                    <th>Turnover Speed</th>
-                    <th>Operating Status</th>
+                    <th data-i18n="th-dining-area">Dining Area</th>
+                    <th data-i18n="th-tables">Tables Total</th>
+                    <th data-i18n="th-booked">Booked</th>
+                    <th data-i18n="th-turnover">Turnover Speed</th>
+                    <th data-i18n="th-status">Operating Status</th>
                   </tr>
                 </thead>
                 <tbody id="chair-table-body">
@@ -325,7 +331,7 @@
                     <td>
                       <div class="chair-name">
                         <i data-lucide="armchair" class="text-primary"></i>
-                        <span>Main Dining Room</span>
+                        <span data-i18n="table-area-main">Main Dining Room</span>
                       </div>
                     </td>
                     <td>18</td>
@@ -336,13 +342,13 @@
                         <div class="mini-bar"><span class="bg-success" style="width:80%"></span></div>
                       </div>
                     </td>
-                    <td><span class="badge badge-success">Good</span></td>
+                    <td><span class="badge badge-success" data-i18n="badge-good">Good</span></td>
                   </tr>
                   <tr>
                     <td>
                       <div class="chair-name">
                         <i data-lucide="armchair" class="text-warning"></i>
-                        <span>Outdoor Patio</span>
+                        <span data-i18n="table-area-outdoor">Outdoor Patio</span>
                       </div>
                     </td>
                     <td>10</td>
@@ -353,13 +359,13 @@
                         <div class="mini-bar"><span class="bg-warning" style="width:60%"></span></div>
                       </div>
                     </td>
-                    <td><span class="badge badge-warning">Watch</span></td>
+                    <td><span class="badge badge-warning" data-i18n="badge-watch">Watch</span></td>
                   </tr>
                   <tr>
                     <td>
                       <div class="chair-name">
                         <i data-lucide="armchair" class="text-danger"></i>
-                        <span>Private Dining Room</span>
+                        <span data-i18n="table-area-private">Private Dining Room</span>
                       </div>
                     </td>
                     <td>2</td>
@@ -370,13 +376,13 @@
                         <div class="mini-bar"><span class="bg-danger" style="width:100%"></span></div>
                       </div>
                     </td>
-                    <td><span class="badge badge-danger">Full</span></td>
+                    <td><span class="badge badge-danger" data-i18n="badge-full">Full</span></td>
                   </tr>
                   <tr>
                     <td>
                       <div class="chair-name">
                         <i data-lucide="armchair" class="text-info"></i>
-                        <span>Bar Seating</span>
+                        <span data-i18n="table-area-bar">Bar Seating</span>
                       </div>
                     </td>
                     <td>12</td>
@@ -387,7 +393,7 @@
                         <div class="mini-bar"><span class="bg-info" style="width:45%"></span></div>
                       </div>
                     </td>
-                    <td><span class="badge badge-info">Opportunity</span></td>
+                    <td><span class="badge badge-info" data-i18n="badge-opportunity">Opportunity</span></td>
                   </tr>
                 </tbody>
               </table>
@@ -399,50 +405,50 @@
             <div class="card-header">
               <div class="card-header-title">
                 <i data-lucide="bar-chart-3" class="text-primary"></i>
-                <h3>Practice Performance Analytics</h3>
+                <h3 data-i18n="perf-title">Practice Performance Analytics</h3>
               </div>
-              <span class="time-range text-muted">Real-time Tracker</span>
+              <span class="time-range text-muted" data-i18n="perf-subtitle">Real-time Tracker</span>
             </div>
             
             <div class="performance-metrics">
               <!-- Metric 1 -->
               <div class="perf-item">
                 <div class="perf-info">
-                  <span class="perf-label">Table Occupancy</span>
+                  <span class="perf-label" data-i18n="perf-label-occupancy">Table Occupancy</span>
                   <span class="perf-val" id="perf-occupancy">78%</span>
                 </div>
                 <div class="bar-progress"><span class="bg-gradient-primary" id="bar-perf-occupancy" style="width: 78%"></span></div>
-                <div class="perf-sub"><span class="text-success">+3.2%</span> vs yesterday</div>
+                <div class="perf-sub"><span class="text-success">+3.2%</span> <span data-i18n="perf-trend-occupancy">vs yesterday</span></div>
               </div>
               
               <!-- Metric 2 -->
               <div class="perf-item">
                 <div class="perf-info">
-                  <span class="perf-label">Staff Coverage</span>
+                  <span class="perf-label" data-i18n="perf-label-staff">Staff Coverage</span>
                   <span class="perf-val" id="perf-staff">72%</span>
                 </div>
                 <div class="bar-progress"><span class="bg-gradient-warning" id="bar-perf-staff" style="width: 72%"></span></div>
-                <div class="perf-sub"><span class="text-danger">-5.0%</span> roster gap between 7-9pm</div>
+                <div class="perf-sub"><span class="text-danger">-5.0%</span> <span data-i18n="perf-trend-staff">roster gap between 7-9pm</span></div>
               </div>
               
               <!-- Metric 3 -->
               <div class="perf-item">
                 <div class="perf-info">
-                  <span class="perf-label">Customer Satisfaction</span>
+                  <span class="perf-label" data-i18n="perf-label-sat">Customer Satisfaction</span>
                   <span class="perf-val">89%</span>
                 </div>
                 <div class="bar-progress"><span class="bg-gradient-success" style="width: 89%"></span></div>
-                <div class="perf-sub"><span class="text-success">+1.5%</span> positive review sentiment</div>
+                <div class="perf-sub"><span class="text-success">+1.5%</span> <span data-i18n="perf-trend-sat">positive review sentiment</span></div>
               </div>
               
               <!-- Metric 4 -->
               <div class="perf-item">
                 <div class="perf-info">
-                  <span class="perf-label">Inventory Readiness</span>
+                  <span class="perf-label" data-i18n="perf-label-inventory">Inventory Readiness</span>
                   <span class="perf-val" id="perf-inventory">68%</span>
                 </div>
                 <div class="bar-progress"><span class="bg-gradient-info" id="bar-perf-inventory" style="width: 68%"></span></div>
-                <div class="perf-sub"><span class="text-warning">Reorder required</span> 3 critical items low</div>
+                <div class="perf-sub"><span class="text-warning" data-i18n="perf-trend-inventory-status">Reorder required</span> <span data-i18n="perf-trend-inventory">3 critical items low</span></div>
               </div>
             </div>
           </section>
@@ -458,19 +464,19 @@
                 <i data-lucide="chef-hat" class="text-primary"></i>
               </div>
               <div>
-                <h4>AI Menu & Prep Planner</h4>
-                <span class="text-muted">Generate kitchen prep checklists</span>
+                <h4 data-i18n="tool-notes-title">AI Menu & Prep Planner</h4>
+                <span class="text-muted" data-i18n="tool-notes-sub">Generate kitchen prep checklists</span>
               </div>
             </div>
-            <p class="tool-desc">Select a dish template to quickly draft structural prep lists, recipe cost breakdowns, or plating guidelines.</p>
+            <p class="tool-desc" data-i18n="tool-notes-desc">Select a dish template to quickly draft structural prep lists, recipe cost breakdowns, or plating guidelines.</p>
             
             <div class="form-group">
-              <label for="note-template">Select Menu Template</label>
+              <label for="note-template" data-i18n="tool-notes-select-label">Select Menu Template</label>
               <select id="note-template" onchange="loadNoteTemplate()">
-                <option value="pasta">Seafood Pasta (Signature Dish)</option>
-                <option value="salmon">Crispy Pan-Seared Salmon</option>
-                <option value="tiramisu">Classic Tiramisu Dessert</option>
-                <option value="antipasto">Rustic Antipasto Board</option>
+                <option value="pasta" data-i18n="opt-pasta">Seafood Pasta (Signature Dish)</option>
+                <option value="salmon" data-i18n="opt-salmon">Crispy Pan-Seared Salmon</option>
+                <option value="tiramisu" data-i18n="opt-tiramisu">Classic Tiramisu Dessert</option>
+                <option value="antipasto" data-i18n="opt-antipasto">Rustic Antipasto Board</option>
               </select>
             </div>
             
@@ -478,11 +484,11 @@
               <div class="note-toolbar">
                 <button class="btn-text btn-icon-sm" id="mic-btn" onclick="toggleSimulateMic()" title="Simulate voice dictation">
                   <i data-lucide="mic"></i>
-                  <span>Simulate Chef Voice</span>
+                  <span id="mic-btn-text" data-i18n="mic-simulate-btn">Simulate Chef Voice</span>
                 </button>
                 <button class="btn-text btn-icon-sm" onclick="copyNoteToClipboard()" title="Copy to clipboard">
                   <i data-lucide="copy" id="copy-note-icon"></i>
-                  <span id="copy-note-text">Copy</span>
+                  <span id="copy-note-text" data-i18n="copy-btn">Copy</span>
                 </button>
               </div>
               <textarea id="clinical-note-box" rows="5" class="ai-box scrollable">Chef prep guideline: Defrost seafood mix at 4C. Hand-roll fresh tagliolini pasta, store in nests. Prepare white wine, garlic, and cherry tomato base. Portion parsley leaves.</textarea>
@@ -490,7 +496,7 @@
             
             <div class="tool-footer">
               <button class="btn btn-primary btn-full" onclick="generateClinicalNote()">
-                <i data-lucide="sparkles"></i> Regenerate Prep Checklist
+                <i data-lucide="sparkles"></i> <span data-i18n="tool-notes-btn-regen">Regenerate Prep Checklist</span>
               </button>
             </div>
           </section>
@@ -502,11 +508,11 @@
                 <i data-lucide="mail" class="text-warning"></i>
               </div>
               <div>
-                <h4>Guest Communication Hub</h4>
-                <span class="text-muted">VIP Outreach & Risk Reduction</span>
+                <h4 data-i18n="tool-comms-title">Guest Communication Hub</h4>
+                <span class="text-muted" data-i18n="tool-comms-sub">VIP Outreach & Risk Reduction</span>
               </div>
             </div>
-            <p class="tool-desc">Draft promotional campaign copy, VIP event invites, or high-risk booking verification alerts.</p>
+            <p class="tool-desc" data-i18n="tool-comms-desc">Draft promotional campaign copy, VIP event invites, or high-risk booking verification alerts.</p>
             
             <div class="channel-tabs">
               <button class="tab-btn active" id="tab-sms" onclick="setChannel('sms')"><i data-lucide="smartphone"></i> SMS</button>
@@ -515,16 +521,16 @@
             </div>
             
             <div class="form-group mt-2">
-              <label for="comms-recipient">Guest/Campaign Target</label>
+              <label for="comms-recipient" data-i18n="tool-comms-recipient-label">Guest/Campaign Target</label>
               <input type="text" id="comms-recipient" value="Business District Offices (Weekday Lunch Promotion)">
             </div>
             
             <div class="message-output-container">
               <div class="note-toolbar">
-                <span class="badge badge-info-soft" id="channel-indicator">SMS Mode (160 Chars max)</span>
+                <span class="badge badge-info-soft" id="channel-indicator" data-i18n="sms-mode-char-limit">SMS Mode (160 Chars max)</span>
                 <button class="btn-text btn-icon-sm" onclick="copyMessageToClipboard()" title="Copy message text">
                   <i data-lucide="copy" id="copy-msg-icon"></i>
-                  <span id="copy-msg-text">Copy</span>
+                  <span id="copy-msg-text" data-i18n="copy-btn">Copy</span>
                 </button>
               </div>
               <textarea id="patient-message-box" rows="4" class="ai-box scrollable">Hi there! Hungry? Join us for our Bistro Express Lunch this Friday. Choose a signature main and wine pairing for just $22. Book now: restroai.rest/lunch</textarea>
@@ -532,7 +538,7 @@
             
             <div class="tool-footer">
               <button class="btn btn-warning btn-full" id="btn-send-message" onclick="sendPatientMessage()">
-                <i data-lucide="send"></i> Send Campaign Copy
+                <i data-lucide="send"></i> <span data-i18n="tool-comms-btn-send">Send Campaign Copy</span>
               </button>
             </div>
           </section>
@@ -544,49 +550,49 @@
                 <i data-lucide="utensils" class="text-success"></i>
               </div>
               <div>
-                <h4>Kitchen & Inventory Hub</h4>
-                <span class="text-muted">Proactive Food & Staff Insights</span>
+                <h4 data-i18n="tool-care-title">Kitchen & Inventory Hub</h4>
+                <span class="text-muted" data-i18n="tool-care-sub">Proactive Food & Staff Insights</span>
               </div>
             </div>
-            <p class="tool-desc">Review food waste logs, ingredient shortages, recipe margin analysis, and demystify complex terms for servers.</p>
+            <p class="tool-desc" data-i18n="tool-care-desc">Review food waste logs, ingredient shortages, recipe margin analysis, and demystify complex terms for servers.</p>
             
             <div class="care-stats">
               <div class="care-stat-item">
                 <div class="cs-left">
-                  <h5>Ingredient Shortages</h5>
-                  <p>Salmon, sparkling water, tiramisu</p>
+                  <h5 data-i18n="care-item1-title">Ingredient Shortages</h5>
+                  <p data-i18n="care-item1-desc">Salmon, sparkling water, tiramisu</p>
                 </div>
-                <span class="badge badge-danger">3 Shortages</span>
+                <span class="badge badge-danger" data-i18n="care-item1-badge">3 Shortages</span>
               </div>
               
               <div class="care-stat-item">
                 <div class="cs-left">
-                  <h5>Staff Coverage Gap</h5>
-                  <p>Dinner shift 7:00pm - 9:00pm</p>
+                  <h5 data-i18n="care-item2-title">Staff Coverage Gap</h5>
+                  <p data-i18n="care-item2-desc">Dinner shift 7:00pm - 9:00pm</p>
                 </div>
-                <span class="badge badge-warning">2 Staff Short</span>
+                <span class="badge badge-warning" data-i18n="care-item2-badge">2 Staff Short</span>
               </div>
               
               <div class="care-stat-item">
                 <div class="cs-left">
-                  <h5>AI Service Co-pilot</h5>
-                  <p>Waitstaff training descriptions</p>
+                  <h5 data-i18n="care-item3-title">AI Service Co-pilot</h5>
+                  <p data-i18n="care-item3-desc">Waitstaff training descriptions</p>
                 </div>
-                <span class="badge badge-success">Active</span>
+                <span class="badge badge-success" data-i18n="care-item3-badge">Active</span>
               </div>
             </div>
             
             <div class="form-group mt-3">
-              <label for="edu-term">Explain Cooking Terms to Servers</label>
+              <label for="edu-term" data-i18n="care-translate-label">Explain Cooking Terms to Servers</label>
               <select id="edu-term" onchange="translateEduTerm()">
-                <option value="none">Choose a culinary term...</option>
-                <option value="sousvide">Sous Vide (Vacuum Cooking)</option>
-                <option value="confit">Confit (Slow Poached in Fat)</option>
-                <option value="mirepoix">Mirepoix (Aromatic Vegetable Base)</option>
+                <option value="none" data-i18n="opt-culinary-default">Choose a culinary term...</option>
+                <option value="sousvide" data-i18n="opt-sousvide">Sous Vide (Vacuum Cooking)</option>
+                <option value="confit" data-i18n="opt-confit">Confit (Slow Poached in Fat)</option>
+                <option value="mirepoix" data-i18n="opt-mirepoix">Mirepoix (Aromatic Vegetable Base)</option>
               </select>
             </div>
             
-            <div class="edu-output ai-box scrollable" id="edu-output-box">
+            <div class="edu-output ai-box scrollable" id="edu-output-box" data-i18n="care-edu-default">
               AI explanation will generate here to help service staff explain preparation styles and allergen profiles to dining guests.
             </div>
           </section>
@@ -596,16 +602,16 @@
         <!-- Info Cards Grid -->
         <div class="content-grid grid-3col mt-4">
           <div class="dashboard-card p-4">
-            <h4 class="mb-2" style="font-family:'Outfit', sans-serif; font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="clipboard-list" class="text-primary"></i> Inventory Automation</h4>
-            <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Track supplier deliveries, live stock counts, waste statistics, ingredient costing, recipe profit margins, and predictive stockout thresholds.</p>
+            <h4 class="mb-2" style="font-family:'Outfit', sans-serif; font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="clipboard-list" class="text-primary"></i> <span data-i18n="footer-grid1-title">Inventory Automation</span></h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.5;" data-i18n="footer-grid1-desc">Track supplier deliveries, live stock counts, waste statistics, ingredient costing, recipe profit margins, and predictive stockout thresholds.</p>
           </div>
           <div class="dashboard-card p-4">
-            <h4 class="mb-2" style="font-family:'Outfit', sans-serif; font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="users" class="text-primary"></i> Admin Automation</h4>
-            <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Reduce manual effort in shift scheduling, double bookings, shift trades, invoice receipts, supplier communications, and daily manager logs.</p>
+            <h4 class="mb-2" style="font-family:'Outfit', sans-serif; font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="users" class="text-primary"></i> <span data-i18n="footer-grid2-title">Admin Automation</span></h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.5;" data-i18n="footer-grid2-desc">Reduce manual effort in shift scheduling, double bookings, shift trades, invoice receipts, supplier communications, and daily manager logs.</p>
           </div>
           <div class="dashboard-card p-4">
-            <h4 class="mb-2" style="font-family:'Outfit', sans-serif; font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="bar-chart-3" class="text-primary"></i> Business Intelligence</h4>
-            <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Generate predictive sales forecasts, guest no-show probability sheets, labor cost ratios, dish profit analyses, and local marketing impact reports.</p>
+            <h4 class="mb-2" style="font-family:'Outfit', sans-serif; font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="bar-chart-3" class="text-primary"></i> <span data-i18n="footer-grid3-title">Business Intelligence</span></h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.5;" data-i18n="footer-grid3-desc">Generate predictive sales forecasts, guest no-show probability sheets, labor cost ratios, dish profit analyses, and local marketing impact reports.</p>
           </div>
         </div>
         
@@ -617,7 +623,7 @@
     <div id="details-modal" class="modal-overlay">
       <div class="modal-card">
         <div class="modal-header">
-          <h3 id="modal-title">Alert Details</h3>
+          <h3 id="modal-title" data-i18n="modal-title-default">Alert Details</h3>
           <button class="modal-close" onclick="closeModal()">
             <i data-lucide="x"></i>
           </button>
@@ -626,8 +632,8 @@
           <!-- Dynamic modal contents -->
         </div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" onclick="closeModal()">Close</button>
-          <button class="btn btn-primary" id="modal-primary-btn">Take Action</button>
+          <button class="btn btn-secondary" onclick="closeModal()" data-i18n="modal-btn-close">Close</button>
+          <button class="btn btn-primary" id="modal-primary-btn" data-i18n="modal-btn-action">Take Action</button>
         </div>
       </div>
     </div>
