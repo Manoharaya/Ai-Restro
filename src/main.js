@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DentAI JavaScript Core Logic
+   GastroAI JavaScript Core Logic
    ========================================================================== */
 
 // Initialize components when the DOM is fully loaded
@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Theme Toggle setup
   initThemeToggle();
   
-  // Initialize Note templates
+  // Initialize Prep templates
   loadNoteTemplate();
   
   // Active Navigation highlighting on scroll or clicks
   initNavigation();
   
-  // Initial message in chat
+  // Initial scroll inside chat
   setTimeout(() => {
     scrollChat();
   }, 100);
@@ -100,44 +100,58 @@ function initNavigation() {
 }
 
 /* ==========================================================================
-   DentAI Assistant (Chat Interface)
+   GastroAI Assistant (Chat Interface)
    ========================================================================== */
 const AI_RESPONSES = {
-  recall: `<h4>Hygiene Recall Campaign Analysis</h4>
-          <p>We currently have <strong>18 patients</strong> overdue for hygiene recleanings. Over the last month, our hygiene conversion rate has fallen to 64% (against our target of 80%).</p>
-          <p><strong>Action Plan:</strong></p>
+  staff: `<h4>Dinner Service Staffing Risk</h4>
+          <p>Our labor optimization model has identified a <strong>staffing gap</strong> tonight from 7:00 PM to 9:00 PM during peak dinner service.</p>
+          <p><strong>AI Recommendation:</strong></p>
           <ul>
-            <li>Select the <strong>Communication Hub</strong> below.</li>
-            <li>Launch the SMS batch targeting overdue recalls.</li>
-            <li>AI recommends using the SMS template offering 2 convenient afternoon slots.</li>
+            <li>Tap the <strong>Modify Roster</strong> option to open the coverage details sheet.</li>
+            <li>AI recommends calling in 1 on-call floor staff member and 1 kitchen runner.</li>
+            <li>We have pre-filled contact templates ready to request coverage from available off-duty staff.</li>
           </ul>`,
   
-  appointment: `<h4>Tomorrow's Appointment Risks</h4>
-                <p>My risk model has identified <strong>2 appointment cancellation risks</strong> for tomorrow:</p>
-                <ol>
-                  <li><strong>Dr. Lee (2:00 PM) - Crown Prep:</strong> Patient Liam Chen has a history of last-minute reschedules (84% cancel-risk score).</li>
-                  <li><strong>Hygienist Miller (11:00 AM):</strong> Patient Sarah Jenkins has not confirmed her recall appointment.</li>
-                </ol>
-                <p><strong>AI Recommendation:</strong> Send a priority WhatsApp confirmation immediately, or tap "Fill from Waitlist" to pre-fill these slots.</p>`,
+  booking: `<h4>High No-Show Risk Bookings</h4>
+            <p>My predictive model has flaggged <strong>6 bookings</strong> with higher no-show risk (above 75%) based on booking source and past attendance behavior.</p>
+            <p><strong>Immediate Action Plan:</strong></p>
+            <ol>
+              <li>Select the <strong>Guest Communication Hub</strong> below.</li>
+              <li>Send our automated SMS booking confirmation request.</li>
+              <li>Activate the dinner reservation waitlist to pre-fill any slot that remains unconfirmed by 5:00 PM.</li>
+            </ol>`,
   
-  revenue: `<h4>Daily Revenue & Utilization Analysis</h4>
-            <p>Our projected revenue for today stands at <strong>$14.8K</strong>, exceeding our target run-rate by 8.4%. This is driven by high-value treatments booked on Chair 1 and Chair 2.</p>
-            <p><strong>Utilization Highlights:</strong></p>
+  revenue: `<h4>Daily Revenue & Sales Performance</h4>
+            <p>Our projected revenue for today stands at <strong>$18.6K</strong>, exceeding our target run-rate by 14.2%. This is driven by high occupancy in the Main Dining Room and strong cover size averages.</p>
+            <p><strong>Revenue Highlights:</strong></p>
             <ul>
-              <li>Dr. Smith (Chair 1) is operating at <strong>92% efficiency</strong>.</li>
-              <li>Hygienist Bay is at <strong>96% capacity</strong>, causing slight backlog risks.</li>
+              <li>Main Dining is performing at <strong>2.4x table turnover speed</strong>.</li>
+              <li>The Friday Lunch slot represents the biggest open opportunity, operating currently at low occupancy.</li>
             </ul>
-            <p><em>Pro tip: We can unlock an additional $3.2K in outstanding treatment plan acceptances by focusing on our 4 high-priority follow-up plans.</em></p>`,
+            <p><em>Pro-Tip: We can capture an estimated $1.8K in additional revenue tonight by actively promoting high-margin menu items like our Seafood Tagliolini Pasta.</em></p>`,
   
-  note: `<h4>Clinical Documentation Audit</h4>
-         <p>There are currently <strong>12 outstanding clinical notes</strong> that require review and completion. Completing these notes within 24 hours ensures insurance compliance and audit readiness.</p>
-         <p><strong>AI Assistant Help:</strong> I have prepared pre-drafted structured notes for Dr. Smith and Dr. Lee based on the day's treatment codes. You can access and copy these in the <strong>Clinical Documentation</strong> card below.</p>`,
-         
-  general: `<h4>Today's Dental Practice Status Summary</h4>
+  inventory: `<h4>Critical Ingredient Shortage Analysis</h4>
+              <p>We are running dangerously low on <strong>3 key ingredients</strong> essential for tonight's service:</p>
+              <ul>
+                <li><strong>Salmon fillets:</strong> Only 4 portions remaining in back-stock.</li>
+                <li><strong>Sparkling mineral water:</strong> 8 bottles left in stock.</li>
+                <li><strong>Tiramisu ingredients:</strong> Mascarpone cheese reserves depleted.</li>
+              </ul>
+              <p><strong>Action Recommended:</strong> Reorder from our fast-delivery supplier immediately or update the AI Prep Planner to promote high-margin alternatives.</p>`,
+              
+  menu: `<h4>Menu & Kitchen Operations Recommendations</h4>
+         <p>To optimize kitchen prep capacity and food margins, GastroAI recommends the following dinner strategies:</p>
+         <ul>
+           <li><strong>Feature:</strong> Promote our Seafood Pasta tonight. It carries a 78% profit margin and is highly rated by return guests.</li>
+           <li><strong>Alternative:</strong> If salmon stocks run out, swap the pan-seared salmon feature for pan-roasted cod, matching prep styles.</li>
+           <li><strong>Up-sell suggestion:</strong> Recommend pairing our signature pasta with a glass of crisp Sauvignon Blanc to increase guest average spend.</li>
+         </ul>`,
+
+  general: `<h4>Today's Restaurant Status Summary</h4>
             <ul>
-              <li><strong>Schedules:</strong> 42 patients booked today. 87% overall chair efficiency.</li>
-              <li><strong>Action Items:</strong> 12 clinical notes to finalize; 4 treatment plan follow-ups needed.</li>
-              <li><strong>Opportunities:</strong> Overdue recalls represent an estimated $4.5K in clinical opportunity.</li>
+              <li><strong>Bookings:</strong> 86 covers booked today. 78% projected occupancy rate.</li>
+              <li><strong>Action Items:</strong> 3 inventory shortages to address; 2-runner staffing gap during dinner service.</li>
+              <li><strong>Revenue Opportunities:</strong> Friday lunch promotions represent a 22% occupancy growth avenue.</li>
             </ul>`
 };
 
@@ -210,14 +224,16 @@ window.sendChatMessage = function() {
     const queryLower = query.toLowerCase();
     let responseText = AI_RESPONSES.general;
     
-    if (queryLower.includes('recall') || queryLower.includes('hygiene') || queryLower.includes('outreach')) {
-      responseText = AI_RESPONSES.recall;
-    } else if (queryLower.includes('appointment') || queryLower.includes('cancel') || queryLower.includes('risk') || queryLower.includes('tomorrow')) {
-      responseText = AI_RESPONSES.appointment;
-    } else if (queryLower.includes('revenue') || queryLower.includes('chair') || queryLower.includes('util') || queryLower.includes('financial')) {
+    if (queryLower.includes('staff') || queryLower.includes('roster') || queryLower.includes('shift') || queryLower.includes('coverage')) {
+      responseText = AI_RESPONSES.staff;
+    } else if (queryLower.includes('booking') || queryLower.includes('no-show') || queryLower.includes('risk') || queryLower.includes('reservation')) {
+      responseText = AI_RESPONSES.booking;
+    } else if (queryLower.includes('revenue') || queryLower.includes('sales') || queryLower.includes('financial') || queryLower.includes('forecast')) {
       responseText = AI_RESPONSES.revenue;
-    } else if (queryLower.includes('note') || queryLower.includes('clinical') || queryLower.includes('doc')) {
-      responseText = AI_RESPONSES.note;
+    } else if (queryLower.includes('inventory') || queryLower.includes('stock') || queryLower.includes('shortage') || queryLower.includes('reorder')) {
+      responseText = AI_RESPONSES.inventory;
+    } else if (queryLower.includes('menu') || queryLower.includes('dish') || queryLower.includes('chef') || queryLower.includes('prep') || queryLower.includes('pasta')) {
+      responseText = AI_RESPONSES.menu;
     }
     
     // Replace typing bubbles with real response text
@@ -225,7 +241,7 @@ window.sendChatMessage = function() {
     bubbleEl.innerHTML = responseText;
     
     scrollChat();
-  }, 1500);
+  }, 1200);
 };
 
 function scrollChat() {
@@ -246,16 +262,16 @@ function escapeHTML(str) {
 }
 
 /* ==========================================================================
-   Clinical Documentation (AI Note Assistant)
+   AI Prep & Menu Planner
    ========================================================================== */
 const NOTE_TEMPLATES = {
-  routine: `Patient attended for routine periodic examination. Medical history reviewed; no changes. Extraoral and intraoral exams completed. Oral hygiene is fair, localized supragingival calculus noted. Radiographs: Bitewings taken today reveal no new interproximal decay. Assessment: Sound dentition. Plan: Scheduled for prophylaxis hygiene in 6 months.`,
+  pasta: `Chef prep guideline: Defrost signature seafood mix at 4C. Hand-roll fresh tagliolini pasta, store in nests. Prepare white wine, garlic, and cherry tomato reduction base. Portion fresh flat-leaf parsley and slice garlic confit. Target cost: $4.20/portion. Target menu price: $24.00 (82.5% margin).`,
   
-  filling: `Anesthetic: Local infiltration 2% Lidocaine with 1:100k epi administered (1.8ml). Isolation: Rubber dam placed. Preparation: Cavity prepared on tooth #14 MO, caries removed, pulp protected. Restoration: Sectional matrix used. Etch, bond, composite resin (A2 shade) placed in increments and light-cured. Finished and polished. Occlusion checked and adjusted. Post-operative instructions given.`,
+  salmon: `Chef prep guideline: Portion fresh Atlantic Salmon into 200g center-cut fillets. Score skin lightly. Store in dry pans over ice. Prepare sage-butter glaze and par-cook baby asparagus spears. Prepare lemon-zest gremoloata for garnish. Check stock levels: critically low (4 portions remaining).`,
   
-  hygiene: `Procedure: Prophylaxis and oral hygiene evaluation. Reviewed medical history. Performed scaling, root planing, and polishing. Cavitron ultrasonic scaler and hand instrumentation utilized. Periodontal probing depths recorded; localized 4mm pockets in maxillary molar regions. Discussed proper flossing technique. Applied fluoride varnish. Recommended return in 3-4 months for periodontal maintenance.`,
+  tiramisu: `Dessert station prep: Whip fresh pasteurized egg yolks with caster sugar and organic mascarpone. Brew strong double-espresso bath, spike with coffee liqueur. Dip artisanal ladyfinger biscuits rapidly, arrange in layers with cream. Chill in ramekins for minimum 6 hours. Dust with dark cocoa powder before serving.`,
   
-  extraction: `Patient attended for emergency extraction of symptomatic tooth #19. Medical history reviewed; BP 120/80. Consent forms signed. Local block anesthesia: 3.6ml Articaine 4% with 1:100k epi. Tooth #19 extracted atraumatically using elevators and forceps. Socket curetted, irrigated, and inspected. Bleeding controlled. Sutures: 3-0 Silk placed. Post-op instructions given verbally and in writing. Prescribed analgesics.`
+  antipasto: `Cold pantry prep: Slice prosciutto di parma, spicy sopressata, and dry coppa. Portion marinated artichoke hearts, roasted red peppers, and mixed Castelvetrano olives. Arrange alongside artisan rosemary focaccia and hand-pulled burrata cheese. Drizzle with cold-pressed olive oil.`
 };
 
 window.loadNoteTemplate = function() {
@@ -273,18 +289,17 @@ window.generateClinicalNote = function() {
   const box = document.getElementById('clinical-note-box');
   const templateKey = select.value;
   
-  // Simulate AI polishing/randomizing detail additions
-  box.value = "AI drafting notes... Please wait...";
+  box.value = "AI generating updated kitchen prep instructions... Please wait...";
   
   setTimeout(() => {
-    const rawTemplate = NOTE_TEMPLATES[templateKey] || NOTE_TEMPLATES.routine;
-    const notesPolishes = [
-      "\nNote: Discussed electric toothbrush options. Patient receptive.",
-      "\nNote: Advised monitoring tooth #3 for potential future restoration.",
-      "\nNote: Oral hygiene instruction sheet provided.",
-      "\nNote: Patient tolerated procedure well with no issues."
+    const rawTemplate = NOTE_TEMPLATES[templateKey] || NOTE_TEMPLATES.pasta;
+    const kitchenPolishes = [
+      "\nAI Food Safety Tip: Ensure temperature checks are logged every 2 hours.",
+      "\nAI Allergy Note: Shellfish warning must be highlighted by front-of-house staff on ticket.",
+      "\nAI Profit Tip: Suggest server wine pairings to increase guest average cover spend.",
+      "\nAI Inventory Alert: Double-check supply limits of ingredients in storage prior to line setup."
     ];
-    const randomPolish = notesPolishes[Math.floor(Math.random() * notesPolishes.length)];
+    const randomPolish = kitchenPolishes[Math.floor(Math.random() * kitchenPolishes.length)];
     box.value = rawTemplate + randomPolish;
   }, 600);
 };
@@ -300,15 +315,15 @@ window.toggleSimulateMic = function() {
     // Stop recording
     clearInterval(micSimInterval);
     micBtn.classList.remove('recording-glow');
-    micBtn.querySelector('span').textContent = "Simulate Voice";
+    micBtn.querySelector('span').textContent = "Simulate Chef Voice";
     if (typeof lucide !== 'undefined') lucide.createIcons();
   } else {
     // Start recording
     micBtn.classList.add('recording-glow');
-    micBtn.querySelector('span').textContent = "Listening...";
+    micBtn.querySelector('span').textContent = "Kitchen Listening...";
     
     // Add text bit by bit
-    const spokenText = [" Patient reports slight sensitivity", " on the upper right quadrant", " when drinking cold fluids.", " Caries check completed."];
+    const spokenText = [" Chef note: Add fresh micro-greens", " and a light drizzle of chili-infused oil", " to the final plate assembly.", " Double check allergy warnings."];
     let index = 0;
     
     micSimInterval = setInterval(() => {
@@ -319,7 +334,7 @@ window.toggleSimulateMic = function() {
         // Automatically stop
         clearInterval(micSimInterval);
         micBtn.classList.remove('recording-glow');
-        micBtn.querySelector('span').textContent = "Simulate Voice";
+        micBtn.querySelector('span').textContent = "Simulate Chef Voice";
         if (typeof lucide !== 'undefined') lucide.createIcons();
       }
     }, 1200);
@@ -345,12 +360,12 @@ window.copyNoteToClipboard = function() {
 };
 
 /* ==========================================================================
-   Patient Communication Hub
+   Guest Outreach Hub
    ========================================================================== */
 const COMMS_TEMPLATES = {
-  sms: "Hi {name}, this is a friendly reminder from Dental Care. You are due for your routine dental hygiene check. Book your slot online in 60s: apex.dental/book or call 555-0199.",
-  email: "Subject: Regular Hygiene Recall Appointment - Dental Care\n\nDear {name},\n\nWe hope this email finds you well. Our records show that you are due for your routine professional dental cleaning and check-up.\n\nRegular hygiene maintenance prevents periodontal issues and keeps your smile bright. We have open times this Thursday and Friday.\n\nBook Online: apex.dental/book\n\nBest regards,\nDr. Smith & Team",
-  whatsapp: "👋 Hi {name}! It's Dental Care. Your semi-annual hygiene visit is due! 🦷\n\nWe have slots open this week:\n🗓️ Wed at 2:00 PM\n🗓️ Thu at 10:30 AM\n\nReply 'YES' to book one, or tap below to choose another time. Link: apex.dental/book"
+  sms: "Hi there! Hungry? Join us for our Bistro Express Lunch this Friday. Choose a signature main and wine pairing for just $22. Book now: gastroai.rest/lunch",
+  email: "Subject: Exclusive Weekday Express Lunch Offer - GastroAI Bistro\n\nDear Local Partner,\n\nWe know how busy the workday can get, which is why we've launched our new Bistro Express Lunch menu designed specifically for nearby professionals.\n\nEnjoy our handmade signature pastas, crispy artisanal salads, and paired premium drinks, prepared and served in under 40 minutes to fit your schedule.\n\nBook Your Friday Table: gastroai.rest/lunch\n\nWarm regards,\nChef & Bistro Service Team",
+  whatsapp: "👋 Hi VIP Guest! Chef here at Bistro. 🍷\n\nWe noticed you have a reservation request pending confirmation for tonight's peak dinner service. We have a waitlist in effect, so please reply 'YES' to confirm your seat, or tap below to modify. Link: gastroai.rest/book"
 };
 
 let currentChannel = 'sms';
@@ -366,23 +381,23 @@ window.setChannel = function(channel) {
   // Update indicator
   const indicator = document.getElementById('channel-indicator');
   const inputMsg = document.getElementById('patient-message-box');
-  const recipient = document.getElementById('comms-recipient').value;
-  
-  // Get plain name (e.g. Sarah Jenkins)
-  const nameOnly = recipient.split('(')[0].trim();
+  const recipient = document.getElementById('comms-recipient');
   
   if (channel === 'sms') {
     indicator.textContent = "SMS Mode (160 Chars max)";
     indicator.className = "badge badge-info-soft";
-    inputMsg.value = COMMS_TEMPLATES.sms.replace('{name}', nameOnly);
+    inputMsg.value = COMMS_TEMPLATES.sms;
+    recipient.value = "Business District Offices (Weekday Lunch Promotion)";
   } else if (channel === 'email') {
     indicator.textContent = "Email Mode (Rich Text HTML)";
     indicator.className = "badge badge-primary-soft";
-    inputMsg.value = COMMS_TEMPLATES.email.replace('{name}', nameOnly);
+    inputMsg.value = COMMS_TEMPLATES.email;
+    recipient.value = "local-businesses-group@partner.com";
   } else if (channel === 'whatsapp') {
     indicator.textContent = "WhatsApp Mode (WhatsApp API Template)";
     indicator.className = "badge badge-success-soft";
-    inputMsg.value = COMMS_TEMPLATES.whatsapp.replace('{name}', nameOnly);
+    inputMsg.value = COMMS_TEMPLATES.whatsapp;
+    recipient.value = "Sarah Jenkins (High No-Show Risk Booking)";
   }
 };
 
@@ -407,34 +422,32 @@ window.copyMessageToClipboard = function() {
 window.sendPatientMessage = function() {
   const btn = document.getElementById('btn-send-message');
   const recipient = document.getElementById('comms-recipient').value;
-  const nameOnly = recipient.split('(')[0].trim();
   
   btn.disabled = true;
-  btn.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> Transmission...`;
+  btn.innerHTML = `<i data-lucide="loader" class="animate-spin"></i> Dispatching...`;
   if (typeof lucide !== 'undefined') lucide.createIcons();
   
   setTimeout(() => {
     btn.disabled = false;
-    btn.innerHTML = `<i data-lucide="check"></i> Message Dispatched!`;
+    btn.innerHTML = `<i data-lucide="check"></i> Dispatched!`;
     if (typeof lucide !== 'undefined') lucide.createIcons();
     
-    // Custom temporary dialog showing dispatch success
-    alert(`Success: Outreach message successfully dispatched to ${nameOnly} via ${currentChannel.toUpperCase()}!`);
+    alert(`Success: Campaign outreach dispatch sent to ${recipient} via ${currentChannel.toUpperCase()}!`);
     
     setTimeout(() => {
-      btn.innerHTML = `<i data-lucide="send"></i> Send Notification`;
+      btn.innerHTML = `<i data-lucide="send"></i> Send Campaign Copy`;
       if (typeof lucide !== 'undefined') lucide.createIcons();
     }, 2000);
   }, 1200);
 };
 
 /* ==========================================================================
-   Patient Care Education Terms
+   Kitchen & Waitstaff Culinary Explanations
    ========================================================================== */
 const EDU_TRANSLATIONS = {
-  crown: "🔬 <strong>Porcelain Fused to Metal Crown (PFM):</strong><br>A PFM crown is a custom-fit cap that covers a damaged or weak tooth. It has a metal foundation for high chewing strength, coated with a layer of tooth-colored porcelain so it blends naturally with neighboring teeth.",
-  scaling: "🔬 <strong>Scaling & Root Planing (SRP / Deep Clean):</strong><br>Unlike a routine polishing, scaling and root planing is a treatment for gum health. We clean below the gumline to clear away deep tartar build-up (scaling), then smooth the tooth root (planing) to help gum fibers re-attach cleanly, stopping bone loss.",
-  rootcanal: "🔬 <strong>Endodontic Therapy (Root Canal):</strong><br>When the soft inner tissues (pulp) of a tooth get infected, a root canal is performed to save the tooth. We clean out the infected tissue from the canals, disinfect the inner space, and fill it with a stable material to prevent future bacteria entries, curing toothaches."
+  sousvide: "🔬 <strong>Sous Vide (French for 'under vacuum'):</strong><br>A premium preparation technique where food (such as steak, chicken, or duck) is vacuum-sealed in a food-grade bag and cooked in a water bath at an incredibly precise, low temperature. This guarantees perfect edge-to-edge cooking, extreme moisture retention, and zero risk of drying out.",
+  confit: "🔬 <strong>Confit (French cooking technique):</strong><br>An ancient preservation and cooking method where ingredients are slow-poached in pure liquid fat (typically duck fat or olive oil) at a very low temperature (around 90°C) for several hours. This breaks down connective tissue, producing an incredibly tender texture and deep, rich flavor profile.",
+  mirepoix: "🔬 <strong>Mirepoix (The Aromatic Foundation):</strong><br>A classic culinary flavor base made from finely diced carrots, celery, and onions, slowly cooked in butter or olive oil without browning. It provides a sweet, aromatic base structure for stocks, soups, pan sauces, and slow-braises, acting as the fundamental layer in gourmet French cuisine."
 };
 
 window.translateEduTerm = function() {
@@ -443,7 +456,7 @@ window.translateEduTerm = function() {
   const term = select.value;
   
   if (term === 'none') {
-    output.innerHTML = "AI explanation will generate here to help clarify treatment options to patients during follow-up.";
+    output.innerHTML = "AI explanation will generate here to help service staff explain preparation styles and allergen profiles to dining guests.";
     output.classList.remove('generated');
   } else if (EDU_TRANSLATIONS[term]) {
     output.innerHTML = EDU_TRANSLATIONS[term];
@@ -452,28 +465,32 @@ window.translateEduTerm = function() {
 };
 
 /* ==========================================================================
-   AI Priority Center Actions
+   AI Attention Center Actions
    ========================================================================== */
 window.actionAlert = function(actionType) {
-  if (actionType === 'recall' || actionType === 'comms') {
-    // Navigate to Comms and set to SMS/WhatsApp
-    document.getElementById('comms-recipient').value = "Sarah Jenkins (Overdue Recall)";
-    setChannel('sms');
-    const commsCard = document.getElementById('section-comms');
-    commsCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    highlightCard(commsCard);
+  if (actionType === 'roster') {
+    openAlertDetails('understaffing');
+  } else if (actionType === 'reorder') {
+    alert("Sending direct order API dispatch... $340 supplier request successfully generated. salmon fillets (x20), sparkling mineral water cases (x10), and mascarpone boxes (x6) scheduled for delivery tomorrow at 6:30 AM!");
+  } else if (actionType === 'menu-tips' || actionType === 'menu') {
+    const input = document.getElementById('chat-input');
+    input.value = "Recommend high-margin alternatives and menu tips for tonight";
+    sendChatMessage();
+    const chatCard = document.getElementById('section-assistant');
+    chatCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    highlightCard(chatCard);
   } else if (actionType === 'confirm') {
-    document.getElementById('comms-recipient').value = "Liam Chen (Crown Prep Confirmation)";
     setChannel('whatsapp');
     const commsCard = document.getElementById('section-comms');
     commsCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
     highlightCard(commsCard);
   } else if (actionType === 'waitlist') {
-    alert("Querying waiting list system... AI has detected Dr. Smith's waitlist patient: 'David Ross' is available for the 2:00 PM slot tomorrow. Automatic invitation sent!");
-  } else if (actionType === 'notes') {
-    const notesCard = document.getElementById('section-notes');
-    notesCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    highlightCard(notesCard);
+    alert("Activating predictive waiting list... GastroAI has matched 3 VIP walk-in profiles with tonight's unconfirmed reservation slots. Automatic invite sent!");
+  } else if (actionType === 'promo') {
+    setChannel('sms');
+    const commsCard = document.getElementById('section-comms');
+    commsCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    highlightCard(commsCard);
   }
 };
 
@@ -488,15 +505,42 @@ function highlightCard(element) {
 /* ==========================================================================
    Details Modal Display
    ========================================================================== */
-const PATIENT_LISTS = {
-  'incomplete-plans': {
-    title: 'Outstanding Restorative Treatment Plans',
-    patients: [
-      { name: 'Sarah Jenkins', details: 'Overdue Crowns & Post core build up (#14) - $1,450', risk: 'Medium Follow-up Risk' },
-      { name: 'Liam Chen', details: '2-Surface Composite fillings (#3, #4) - $480', risk: 'High Cancellation Risk' },
-      { name: 'David Ross', details: 'Root canal therapy (#19) - $980', risk: 'Low Risk - Ready' },
-      { name: 'Emma Watson', details: 'Bridge porcelain fused (#12, #13) - $2,200', risk: 'Medium Risk' }
-    ]
+const ALERT_DETAILS = {
+  'understaffing': {
+    title: 'Dinner Shift Labor Coverage Gap',
+    content: `
+      <div class="modal-patient-list">
+        <div class="modal-patient-item">
+          <div class="p-details">
+            <h5>Roster Shift: 7:00 PM - 9:00 PM (Dinner Peak)</h5>
+            <p>Projected covers: 140 | Required Staff: 16 | Roster: 14</p>
+          </div>
+          <span class="badge badge-danger-soft">2 Staff Deficit</span>
+        </div>
+        <div class="modal-patient-item">
+          <div class="p-details">
+            <h5>On-Call Floor Host Option</h5>
+            <p>Sarah Jenkins - Available | Hostess & Server role | Response speed: Fast</p>
+          </div>
+          <span class="badge badge-success-soft">Ready to Call</span>
+        </div>
+        <div class="modal-patient-item">
+          <div class="p-details">
+            <h5>On-Call Kitchen Runner Option</h5>
+            <p>David Ross - Available | Back-of-house support role</p>
+          </div>
+          <span class="badge badge-success-soft">Ready to Call</span>
+        </div>
+        <div class="modal-patient-item">
+          <div class="p-details">
+            <h5>Kitchen Shift Lead</h5>
+            <p>Chef Marie - On Shift (Restorative Prep) | Chair operations optimal</p>
+          </div>
+          <span class="badge badge-info-soft">Active</span>
+        </div>
+      </div>
+    `,
+    btnText: "Dispatch Shift Request SMS"
   }
 };
 
@@ -506,36 +550,17 @@ window.openAlertDetails = function(key) {
   const contentEl = document.getElementById('modal-content');
   const actionBtn = document.getElementById('modal-primary-btn');
   
-  const data = PATIENT_LISTS[key];
+  const data = ALERT_DETAILS[key];
   if (!data) return;
   
   titleEl.textContent = data.title;
-  
-  let listHtml = '<div class="modal-patient-list">';
-  data.patients.forEach(p => {
-    let badgeClass = 'badge-success-soft';
-    if (p.risk.includes('High')) badgeClass = 'badge-danger-soft';
-    if (p.risk.includes('Medium')) badgeClass = 'badge-warning-soft';
-    
-    listHtml += `
-      <div class="modal-patient-item">
-        <div class="p-details">
-          <h5>${p.name}</h5>
-          <p>${p.details}</p>
-        </div>
-        <span class="badge ${badgeClass}">${p.risk}</span>
-      </div>
-    `;
-  });
-  listHtml += '</div>';
-  
-  contentEl.innerHTML = listHtml;
+  contentEl.innerHTML = data.content;
   
   actionBtn.onclick = () => {
     closeModal();
-    actionAlert('recall');
+    alert("Shift coverage invitation successfully broadcasted to available on-call members: Sarah Jenkins and David Ross!");
   };
-  actionBtn.textContent = "Create Outreach SMS Batch";
+  actionBtn.textContent = data.btnText;
   
   modal.classList.add('open');
 };
@@ -546,7 +571,7 @@ window.closeModal = function() {
 };
 
 /* ==========================================================================
-   Chair Monitor Data Randomizer
+   Table & Seating Monitor Data Randomizer
    ========================================================================== */
 window.refreshChairMonitor = function() {
   const refreshBtn = document.querySelector('.card-header button i');
@@ -557,50 +582,94 @@ window.refreshChairMonitor = function() {
   }
   
   // Randomize values a bit to simulate real-time operations
-  const chairs = [
-    { provider: 'Dr. Smith', basePatients: 11, baseUtil: 90, status: 'Optimal' },
-    { provider: 'Dr. Lee', basePatients: 9, baseUtil: 80, status: 'Good' },
-    { provider: 'Hygienist Miller', basePatients: 13, baseUtil: 95, status: 'Near Capacity' },
-    { provider: 'Dr. Patel (Emergency)', basePatients: 5, baseUtil: 60, status: 'Available Cap' }
+  const areas = [
+    { name: 'Main Dining Room', baseTables: 18, baseBooked: 15, baseTurn: 80, status: 'Good' },
+    { name: 'Outdoor Patio', baseTables: 10, baseBooked: 7, baseTurn: 60, status: 'Watch' },
+    { name: 'Private Dining Room', baseTables: 2, baseBooked: 2, baseTurn: 100, status: 'Full' },
+    { name: 'Bar Seating', baseTables: 12, baseBooked: 5, baseTurn: 45, status: 'Opportunity' }
   ];
   
   const tbody = document.getElementById('chair-table-body');
   tbody.innerHTML = '';
   
-  chairs.forEach((c, idx) => {
-    const randOffset = Math.floor(Math.random() * 5) - 2; // -2 to +2
-    const finalPatients = c.basePatients + randOffset;
-    let finalUtil = c.baseUtil + Math.floor(Math.random() * 6) - 3;
-    if (finalUtil > 100) finalUtil = 100;
+  let totalBooked = 0;
+  let totalTables = 0;
+  
+  areas.forEach((a, idx) => {
+    // Generate slight offsets
+    const bookedOffset = Math.floor(Math.random() * 3) - 1; // -1 to +1
+    let finalBooked = a.baseBooked + bookedOffset;
+    if (finalBooked < 0) finalBooked = 0;
+    if (finalBooked > a.baseTables) finalBooked = a.baseTables;
+    
+    totalBooked += finalBooked;
+    totalTables += a.baseTables;
+    
+    let finalTurn = a.baseTurn + Math.floor(Math.random() * 10) - 5;
+    if (finalTurn > 100) finalTurn = 100;
+    if (finalTurn < 10) finalTurn = 10;
     
     let statusClass = 'badge-success';
-    if (c.status.includes('Capacity')) statusClass = 'badge-warning';
-    if (c.status.includes('Available')) statusClass = 'badge-info';
+    let statusText = 'Good';
     
-    let utilColor = 'bg-success';
-    if (finalUtil > 95) utilColor = 'bg-warning';
-    if (finalUtil < 70) utilColor = 'bg-info';
+    if (finalBooked === a.baseTables) {
+      statusClass = 'badge-danger';
+      statusText = 'Full';
+    } else if (finalTurn < 50) {
+      statusClass = 'badge-info';
+      statusText = 'Opportunity';
+    } else if (finalBooked / a.baseTables < 0.75) {
+      statusClass = 'badge-warning';
+      statusText = 'Watch';
+    }
+    
+    let speedVal = (finalTurn / 33).toFixed(1) + 'x';
+    let barColor = 'bg-success';
+    if (finalTurn > 90) barColor = 'bg-danger';
+    else if (finalTurn < 55) barColor = 'bg-info';
+    else if (finalTurn < 75) barColor = 'bg-warning';
     
     tbody.innerHTML += `
       <tr>
         <td>
           <div class="chair-name">
             <i data-lucide="armchair" class="text-primary"></i>
-            <span>Chair ${idx + 1} (${idx === 2 ? 'Hygiene Bay' : idx === 3 ? 'Surgical' : 'Restorative'})</span>
+            <span>${a.name}</span>
           </div>
         </td>
-        <td>${c.provider}</td>
-        <td>${finalPatients}</td>
+        <td>${a.baseTables}</td>
+        <td>${finalBooked}</td>
         <td>
           <div class="td-progress">
-            <span>${finalUtil}%</span>
-            <div class="mini-bar"><span class="${utilColor}" style="width:${finalUtil}%"></span></div>
+            <span>${speedVal}</span>
+            <div class="mini-bar"><span class="${barColor}" style="width:${finalTurn}%"></span></div>
           </div>
         </td>
-        <td><span class="badge ${statusClass}">${c.status}</span></td>
+        <td><span class="badge ${statusClass}">${statusText}</span></td>
       </tr>
     `;
   });
+  
+  // Calculate dynamic dashboard occupancy
+  const finalOccupancy = Math.round((totalBooked / totalTables) * 100);
+  
+  // Update dashboard metrics
+  const occVal = document.getElementById('metric-occupancy');
+  const occBar = document.getElementById('bar-occupancy');
+  const perfOccVal = document.getElementById('perf-occupancy');
+  const perfOccBar = document.getElementById('bar-perf-occupancy');
+  
+  if (occVal) occVal.textContent = finalOccupancy + '%';
+  if (occBar) occBar.style.width = finalOccupancy + '%';
+  if (perfOccVal) perfOccVal.textContent = finalOccupancy + '%';
+  if (perfOccBar) perfOccBar.style.width = finalOccupancy + '%';
+  
+  // Randomize booking count slightly
+  const bookingsVal = document.getElementById('metric-bookings');
+  if (bookingsVal) {
+    const currentBookings = parseInt(bookingsVal.textContent);
+    bookingsVal.textContent = (currentBookings + Math.floor(Math.random() * 3) - 1);
+  }
   
   if (typeof lucide !== 'undefined') lucide.createIcons();
 };

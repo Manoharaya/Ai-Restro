@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DentAI - Dental Practice Intelligence Dashboard</title>
+  <title>GastroAI - Restaurant Intelligence Dashboard</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="DentAI is a premium, AI-powered dental practice intelligence dashboard designed to optimize clinic workflows, minimize cancellations, and streamline clinical documentation.">
-  <meta name="keywords" content="dental dashboard, ai dentist, dental software, clinic automation, clinical notes, patient recalls">
+  <meta name="description" content="GastroAI is a premium, AI-powered restaurant intelligence dashboard designed to optimize table occupancy, reduce administrative burden, and streamline kitchen and guest operations.">
+  <meta name="keywords" content="restaurant dashboard, ai chef, culinary software, kitchen automation, prep plans, guest outreach, table monitor">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,11 +27,11 @@
     <aside class="sidebar">
       <div class="sidebar-brand">
         <div class="brand-icon">
-          <i data-lucide="sparkles"></i>
+          <i data-lucide="chef-hat"></i>
         </div>
         <div class="brand-name">
-          <h2>Dent<span>AI</span></h2>
-          <span class="brand-sub">Practice Intelligence</span>
+          <h2>Gastro<span>AI</span></h2>
+          <span class="brand-sub">Restaurant Intelligence</span>
         </div>
       </div>
       
@@ -49,25 +49,25 @@
           <i data-lucide="message-square"></i>
           <span>AI Assistant</span>
         </a>
-        <a href="#notes" class="menu-item" id="nav-notes">
-          <i data-lucide="file-text"></i>
-          <span>Note Generator</span>
+        <a href="#prep" class="menu-item" id="nav-notes">
+          <i data-lucide="clipboard-list"></i>
+          <span>Prep Planner</span>
         </a>
         <a href="#comms" class="menu-item" id="nav-comms">
           <i data-lucide="mail"></i>
-          <span>Comms Hub</span>
+          <span>Guest Hub</span>
         </a>
       </nav>
       
       <div class="sidebar-footer">
         <div class="practice-info">
           <div class="practice-avatar">
-            <i data-lucide="hospital"></i>
+            <i data-lucide="utensils"></i>
           </div>
           <div class="practice-meta">
-            <span class="practice-name">Dental Care</span>
+            <span class="practice-name">Bistro Bistro</span>
             <span class="practice-status">
-              <span class="status-indicator online"></span> Online
+              <span class="status-indicator online"></span> Kitchen Active
             </span>
           </div>
         </div>
@@ -81,7 +81,7 @@
       <header class="top-header">
         <div class="header-left">
           <h1 class="page-title">Intelligence Dashboard</h1>
-          <p class="page-subtitle">Welcome back. Here is your clinic status for today.</p>
+          <p class="page-subtitle">Welcome back. Here is your restaurant status for today's service.</p>
         </div>
         
         <div class="header-right">
@@ -110,51 +110,51 @@
         <!-- Key Metrics Grid -->
         <section class="metrics-grid">
           
-          <!-- Card 1 -->
+          <!-- Card 1: Bookings -->
           <div class="metric-card">
             <div class="metric-card-header">
-              <span class="metric-title">Patients Today</span>
+              <span class="metric-title">Bookings Today</span>
               <div class="metric-icon bg-primary-soft">
                 <i data-lucide="users"></i>
               </div>
             </div>
-            <div class="metric-value">42</div>
+            <div class="metric-value" id="metric-bookings">86</div>
             <div class="metric-trend text-success">
               <i data-lucide="trending-up"></i>
-              <span>+12% vs last Mon</span>
+              <span>+18% vs last Mon</span>
             </div>
           </div>
           
-          <!-- Card 2 -->
+          <!-- Card 2: Occupancy -->
           <div class="metric-card">
             <div class="metric-card-header">
-              <span class="metric-title">Chair Utilisation</span>
+              <span class="metric-title">Table Occupancy</span>
               <div class="metric-icon bg-success-soft">
                 <i data-lucide="percent"></i>
               </div>
             </div>
-            <div class="metric-value">87%</div>
+            <div class="metric-value" id="metric-occupancy">78%</div>
             <div class="metric-progress-wrapper">
-              <div class="metric-progress-bar"><span style="width: 87%"></span></div>
+              <div class="metric-progress-bar"><span id="bar-occupancy" style="width: 78%"></span></div>
             </div>
           </div>
           
-          <!-- Card 3 -->
+          <!-- Card 3: Staff -->
           <div class="metric-card">
             <div class="metric-card-header">
-              <span class="metric-title">Recalls Due</span>
+              <span class="metric-title">Staff On Shift</span>
               <div class="metric-icon bg-warning-soft">
-                <i data-lucide="calendar"></i>
+                <i data-lucide="users"></i>
               </div>
             </div>
-            <div class="metric-value">18</div>
+            <div class="metric-value" id="metric-staff">14</div>
             <div class="metric-trend text-warning">
               <i data-lucide="alert-circle"></i>
-              <span>Action recommended</span>
+              <span>Roster gaps predicted</span>
             </div>
           </div>
           
-          <!-- Card 4 -->
+          <!-- Card 4: Revenue -->
           <div class="metric-card">
             <div class="metric-card-header">
               <span class="metric-title">Projected Revenue</span>
@@ -162,10 +162,10 @@
                 <i data-lucide="dollar-sign"></i>
               </div>
             </div>
-            <div class="metric-value">$14.8K</div>
+            <div class="metric-value" id="metric-revenue">$18.6K</div>
             <div class="metric-trend text-success">
               <i data-lucide="trending-up"></i>
-              <span>+8.4% above target</span>
+              <span>+14.2% above target</span>
             </div>
           </div>
           
@@ -189,14 +189,14 @@
               <div class="alert-item priority-high">
                 <div class="alert-content">
                   <div class="alert-meta">
-                    <span class="alert-tag bg-danger-soft text-danger">Clinical Follow-up</span>
+                    <span class="alert-tag bg-danger-soft text-danger">Staffing Risk</span>
                     <span class="alert-time">Just Now</span>
                   </div>
-                  <h4 class="alert-title">Incomplete Treatment Plans</h4>
-                  <p class="alert-desc">4 patients (Sarah Jenkins, Liam Chen, David Ross, Emma Watson) have outstanding restorative treatment plans with high probability of scheduling if contacted today.</p>
+                  <h4 class="alert-title">Understaffing: Dinner Service</h4>
+                  <p class="alert-desc">Dinner service is likely to be understaffed between 7:00–9:00pm. AI recommendation: Add one floor staff member and one kitchen runner to meet peak customer velocity.</p>
                   <div class="alert-actions">
-                    <button class="btn btn-sm btn-primary" onclick="actionAlert('recall')">Generate Recalls</button>
-                    <button class="btn btn-sm btn-secondary" onclick="openAlertDetails('incomplete-plans')">View Patients</button>
+                    <button class="btn btn-sm btn-primary" onclick="actionAlert('roster')">Modify Roster</button>
+                    <button class="btn btn-sm btn-secondary" onclick="openAlertDetails('understaffing')">View Coverage</button>
                   </div>
                 </div>
               </div>
@@ -205,14 +205,14 @@
               <div class="alert-item priority-medium">
                 <div class="alert-content">
                   <div class="alert-meta">
-                    <span class="alert-tag bg-warning-soft text-warning">Schedule Risk</span>
+                    <span class="alert-tag bg-warning-soft text-warning">Inventory Warning</span>
                     <span class="alert-time">1h ago</span>
                   </div>
-                  <h4 class="alert-title">Cancellation Risk: Tomorrow</h4>
-                  <p class="alert-desc">Dr. Lee's 2 PM crown prep has high no-show risk (84% score). Predictable gap of 90 minutes.</p>
+                  <h4 class="alert-title">Ingredient Shortages Detected</h4>
+                  <p class="alert-desc">Salmon, sparkling water, and tiramisu ingredients are running dangerously low. AI recommendation: Reorder before evening service to prevent stockouts.</p>
                   <div class="alert-actions">
-                    <button class="btn btn-sm btn-warning" onclick="actionAlert('confirm')">Send VIP SMS</button>
-                    <button class="btn btn-sm btn-secondary" onclick="actionAlert('waitlist')">Fill from Waitlist</button>
+                    <button class="btn btn-sm btn-warning" onclick="actionAlert('reorder')">Reorder Stock</button>
+                    <button class="btn btn-sm btn-secondary" onclick="actionAlert('menu-tips')">Check Alternatives</button>
                   </div>
                 </div>
               </div>
@@ -221,13 +221,14 @@
               <div class="alert-item priority-medium">
                 <div class="alert-content">
                   <div class="alert-meta">
-                    <span class="alert-tag bg-warning-soft text-warning">Documentation</span>
+                    <span class="alert-tag bg-warning-soft text-warning">Booking Risk</span>
                     <span class="alert-time">2h ago</span>
                   </div>
-                  <h4 class="alert-title">Outstanding Clinical Notes</h4>
-                  <p class="alert-desc">12 clinical notes are pending dentist sign-off from yesterday and today. AI co-pilot has drafted clinical summaries for quick review.</p>
+                  <h4 class="alert-title">High No-Show Probability</h4>
+                  <p class="alert-desc">6 bookings have a high no-show risk (exceeding 75% score based on historical patterns). AI recommendation: Send confirmation SMS and activate waitlist.</p>
                   <div class="alert-actions">
-                    <button class="btn btn-sm btn-primary" onclick="actionAlert('notes')">Open Note Assistant</button>
+                    <button class="btn btn-sm btn-primary" onclick="actionAlert('confirm')">Send Confirm SMS</button>
+                    <button class="btn btn-sm btn-secondary" onclick="actionAlert('waitlist')">Enable Waitlist</button>
                   </div>
                 </div>
               </div>
@@ -239,10 +240,10 @@
                     <span class="alert-tag bg-success-soft text-success">Revenue Opportunity</span>
                     <span class="alert-time">Morning Run</span>
                   </div>
-                  <h4 class="alert-title">Hygiene Recall Conversion Gap</h4>
-                  <p class="alert-desc">Hygiene recall rate is at 64% (target: 80%). 18 patient files are overdue for professional cleanings.</p>
+                  <h4 class="alert-title">Low Friday Lunch Occupancy</h4>
+                  <p class="alert-desc">Friday lunch has low projected occupancy. AI recommendation: Launch a tailored weekday lunch promotion targeting nearby business offices.</p>
                   <div class="alert-actions">
-                    <button class="btn btn-sm btn-success" onclick="actionAlert('comms')">Start Recall Campaign</button>
+                    <button class="btn btn-sm btn-success" onclick="actionAlert('promo')">Start Campaign</button>
                   </div>
                 </div>
               </div>
@@ -254,7 +255,7 @@
             <div class="card-header">
               <div class="card-header-title">
                 <i data-lucide="message-square" class="text-primary"></i>
-                <h3>DentAI Assistant</h3>
+                <h3>GastroAI Assistant</h3>
               </div>
               <div class="ai-status">
                 <span class="status-indicator online"></span>
@@ -269,21 +270,21 @@
                     <i data-lucide="bot"></i>
                   </div>
                   <div class="msg-bubble">
-                    <p>Good morning! I am monitoring Dental Care's status. Ask me about recalls, revenue opportunities, scheduling gaps, or clinical notes.</p>
+                    <p>Good evening! I am monitoring GastroAI's status. Ask me about bookings, staff coverage, inventory levels, revenue opportunities, or menu updates.</p>
                   </div>
                 </div>
               </div>
               
               <!-- Quick Suggestions -->
               <div class="chat-suggestions">
-                <button class="suggestion-tag" onclick="sendSuggestion('How to improve hygiene recall conversion?')">Hygiene recalls</button>
-                <button class="suggestion-tag" onclick="sendSuggestion('Optimize tomorrow\'s schedule cancellations')">Tomorrow's risks</button>
-                <button class="suggestion-tag" onclick="sendSuggestion('Summary of daily revenue and performance')">Revenue options</button>
-                <button class="suggestion-tag" onclick="sendSuggestion('Draft pending clinical notes')">Pending notes</button>
+                <button class="suggestion-tag" onclick="sendSuggestion('Optimize dinner staff rosters')">Staff rosters</button>
+                <button class="suggestion-tag" onclick="sendSuggestion('Minimize tomorrow\'s booking no-show risks')">Booking risks</button>
+                <button class="suggestion-tag" onclick="sendSuggestion('Summary of daily revenue and sales performance')">Revenue forecast</button>
+                <button class="suggestion-tag" onclick="sendSuggestion('Reorder low inventory and stock')">Inventory warning</button>
               </div>
               
               <div class="chat-input-wrapper">
-                <input type="text" id="chat-input" placeholder="Type a message or clinical instruction..." onkeydown="handleChatKey(event)">
+                <input type="text" id="chat-input" placeholder="Type a message or kitchen instruction..." onkeydown="handleChatKey(event)">
                 <button id="chat-send" class="btn-icon" onclick="sendChatMessage()">
                   <i data-lucide="send"></i>
                 </button>
@@ -293,15 +294,15 @@
           
         </div>
         
-        <!-- Secondary Grid: Chair Monitor & Performance metrics -->
+        <!-- Secondary Grid: Table Monitor & Performance metrics -->
         <div class="content-grid grid-2col mt-4">
           
-          <!-- Table: Appointment & Chair Monitor -->
+          <!-- Table: Seating Area & Table Monitor -->
           <section class="dashboard-card">
             <div class="card-header">
               <div class="card-header-title">
-                <i data-lucide="columns" class="text-primary"></i>
-                <h3>Chair & Provider Operations</h3>
+                <i data-lucide="utensils" class="text-primary"></i>
+                <h3>Seating Area & Table Monitor</h3>
               </div>
               <button class="btn btn-sm btn-secondary" onclick="refreshChairMonitor()">
                 <i data-lucide="refresh-cw"></i> Refresh
@@ -312,10 +313,10 @@
               <table class="data-table">
                 <thead>
                   <tr>
-                    <th>Chair</th>
-                    <th>Lead Provider</th>
-                    <th>Patients</th>
-                    <th>Utilization</th>
+                    <th>Dining Area</th>
+                    <th>Tables Total</th>
+                    <th>Booked</th>
+                    <th>Turnover Speed</th>
                     <th>Operating Status</th>
                   </tr>
                 </thead>
@@ -324,32 +325,15 @@
                     <td>
                       <div class="chair-name">
                         <i data-lucide="armchair" class="text-primary"></i>
-                        <span>Chair 1 (Restorative)</span>
+                        <span>Main Dining Room</span>
                       </div>
                     </td>
-                    <td>Dr. Smith</td>
-                    <td>12</td>
+                    <td>18</td>
+                    <td>15</td>
                     <td>
                       <div class="td-progress">
-                        <span>92%</span>
-                        <div class="mini-bar"><span class="bg-success" style="width:92%"></span></div>
-                      </div>
-                    </td>
-                    <td><span class="badge badge-success">Optimal</span></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="chair-name">
-                        <i data-lucide="armchair" class="text-primary"></i>
-                        <span>Chair 2 (Crown & Bridge)</span>
-                      </div>
-                    </td>
-                    <td>Dr. Lee</td>
-                    <td>10</td>
-                    <td>
-                      <div class="td-progress">
-                        <span>84%</span>
-                        <div class="mini-bar"><span class="bg-success" style="width:84%"></span></div>
+                        <span>2.4x</span>
+                        <div class="mini-bar"><span class="bg-success" style="width:80%"></span></div>
                       </div>
                     </td>
                     <td><span class="badge badge-success">Good</span></td>
@@ -358,42 +342,59 @@
                     <td>
                       <div class="chair-name">
                         <i data-lucide="armchair" class="text-warning"></i>
-                        <span>Chair 3 (Hygiene Bay)</span>
+                        <span>Outdoor Patio</span>
                       </div>
                     </td>
-                    <td>Hygienist Miller</td>
-                    <td>14</td>
+                    <td>10</td>
+                    <td>7</td>
                     <td>
                       <div class="td-progress">
-                        <span>96%</span>
-                        <div class="mini-bar"><span class="bg-warning" style="width:96%"></span></div>
+                        <span>1.8x</span>
+                        <div class="mini-bar"><span class="bg-warning" style="width:60%"></span></div>
                       </div>
                     </td>
-                    <td><span class="badge badge-warning">Near Capacity</span></td>
+                    <td><span class="badge badge-warning">Watch</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="chair-name">
+                        <i data-lucide="armchair" class="text-danger"></i>
+                        <span>Private Dining Room</span>
+                      </div>
+                    </td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>
+                      <div class="td-progress">
+                        <span>1.0x</span>
+                        <div class="mini-bar"><span class="bg-danger" style="width:100%"></span></div>
+                      </div>
+                    </td>
+                    <td><span class="badge badge-danger">Full</span></td>
                   </tr>
                   <tr>
                     <td>
                       <div class="chair-name">
                         <i data-lucide="armchair" class="text-info"></i>
-                        <span>Chair 4 (Surgical / Emerg)</span>
+                        <span>Bar Seating</span>
                       </div>
                     </td>
-                    <td>Dr. Patel (Emergency)</td>
-                    <td>6</td>
+                    <td>12</td>
+                    <td>5</td>
                     <td>
                       <div class="td-progress">
-                        <span>68%</span>
-                        <div class="mini-bar"><span class="bg-info" style="width:68%"></span></div>
+                        <span>1.5x</span>
+                        <div class="mini-bar"><span class="bg-info" style="width:45%"></span></div>
                       </div>
                     </td>
-                    <td><span class="badge badge-info">Available Cap</span></td>
+                    <td><span class="badge badge-info">Opportunity</span></td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </section>
           
-          <!-- Performance Charts / Metas -->
+          <!-- Performance Snapshot -->
           <section class="dashboard-card">
             <div class="card-header">
               <div class="card-header-title">
@@ -407,69 +408,69 @@
               <!-- Metric 1 -->
               <div class="perf-item">
                 <div class="perf-info">
-                  <span class="perf-label">Overall Chair Utilisation</span>
-                  <span class="perf-val">87%</span>
+                  <span class="perf-label">Table Occupancy</span>
+                  <span class="perf-val" id="perf-occupancy">78%</span>
                 </div>
-                <div class="bar-progress"><span class="bg-gradient-primary" style="width: 87%"></span></div>
-                <div class="perf-sub"><span class="text-success">+2.4%</span> since last month</div>
+                <div class="bar-progress"><span class="bg-gradient-primary" id="bar-perf-occupancy" style="width: 78%"></span></div>
+                <div class="perf-sub"><span class="text-success">+3.2%</span> vs yesterday</div>
               </div>
               
               <!-- Metric 2 -->
               <div class="perf-item">
                 <div class="perf-info">
-                  <span class="perf-label">Recall Conversion Rate</span>
-                  <span class="perf-val">64%</span>
+                  <span class="perf-label">Staff Coverage</span>
+                  <span class="perf-val" id="perf-staff">72%</span>
                 </div>
-                <div class="bar-progress"><span class="bg-gradient-warning" style="width: 64%"></span></div>
-                <div class="perf-sub"><span class="text-danger">-1.8%</span> target: 80%</div>
+                <div class="bar-progress"><span class="bg-gradient-warning" id="bar-perf-staff" style="width: 72%"></span></div>
+                <div class="perf-sub"><span class="text-danger">-5.0%</span> roster gap between 7-9pm</div>
               </div>
               
               <!-- Metric 3 -->
               <div class="perf-item">
                 <div class="perf-info">
-                  <span class="perf-label">Treatment Plan Acceptance</span>
-                  <span class="perf-val">72%</span>
+                  <span class="perf-label">Customer Satisfaction</span>
+                  <span class="perf-val">89%</span>
                 </div>
-                <div class="bar-progress"><span class="bg-gradient-success" style="width: 72%"></span></div>
-                <div class="perf-sub"><span class="text-success">+4.1%</span> target: 70%</div>
+                <div class="bar-progress"><span class="bg-gradient-success" style="width: 89%"></span></div>
+                <div class="perf-sub"><span class="text-success">+1.5%</span> positive review sentiment</div>
               </div>
               
               <!-- Metric 4 -->
               <div class="perf-item">
                 <div class="perf-info">
-                  <span class="perf-label">Clinical Notes Completion Rate</span>
-                  <span class="perf-val">81%</span>
+                  <span class="perf-label">Inventory Readiness</span>
+                  <span class="perf-val" id="perf-inventory">68%</span>
                 </div>
-                <div class="bar-progress"><span class="bg-gradient-info" style="width: 81%"></span></div>
-                <div class="perf-sub"><span class="text-success">+5.3%</span> target: 100% (24hr window)</div>
+                <div class="bar-progress"><span class="bg-gradient-info" id="bar-perf-inventory" style="width: 68%"></span></div>
+                <div class="perf-sub"><span class="text-warning">Reorder required</span> 3 critical items low</div>
               </div>
             </div>
           </section>
         </div>
         
-        <!-- Interactive Tools Section: Clinical Notes, Comms Hub, Care Intelligence -->
+        <!-- Interactive Tools Section: Prep Planner, Guest Hub, Kitchen Automation -->
         <div class="content-grid grid-3col mt-4">
           
-          <!-- Tool 1: AI Clinical Notes Assistant -->
+          <!-- Tool 1: AI Prep Planner -->
           <section id="section-notes" class="dashboard-card tool-card">
             <div class="tool-card-header">
               <div class="icon-circle bg-primary-soft">
-                <i data-lucide="file-text" class="text-primary"></i>
+                <i data-lucide="chef-hat" class="text-primary"></i>
               </div>
               <div>
-                <h4>AI Note Auto-Draft</h4>
-                <span class="text-muted">12 notes pending completion</span>
+                <h4>AI Menu & Prep Planner</h4>
+                <span class="text-muted">Generate kitchen prep checklists</span>
               </div>
             </div>
-            <p class="tool-desc">Select a treatment type to quickly generate structured, audit-ready clinical notes. Expand and edit details.</p>
+            <p class="tool-desc">Select a dish template to quickly draft structural prep lists, recipe cost breakdowns, or plating guidelines.</p>
             
             <div class="form-group">
-              <label for="note-template">Select Treatment Template</label>
+              <label for="note-template">Select Menu Template</label>
               <select id="note-template" onchange="loadNoteTemplate()">
-                <option value="routine">Routine Examination (Periodic)</option>
-                <option value="filling">Composite Restoration (2-Surface)</option>
-                <option value="hygiene">Hygiene and Periodical Cleaning</option>
-                <option value="extraction">Surgical Simple Extraction</option>
+                <option value="pasta">Seafood Pasta (Signature Dish)</option>
+                <option value="salmon">Crispy Pan-Seared Salmon</option>
+                <option value="tiramisu">Classic Tiramisu Dessert</option>
+                <option value="antipasto">Rustic Antipasto Board</option>
               </select>
             </div>
             
@@ -477,35 +478,35 @@
               <div class="note-toolbar">
                 <button class="btn-text btn-icon-sm" id="mic-btn" onclick="toggleSimulateMic()" title="Simulate voice dictation">
                   <i data-lucide="mic"></i>
-                  <span>Simulate Voice</span>
+                  <span>Simulate Chef Voice</span>
                 </button>
                 <button class="btn-text btn-icon-sm" onclick="copyNoteToClipboard()" title="Copy to clipboard">
                   <i data-lucide="copy" id="copy-note-icon"></i>
                   <span id="copy-note-text">Copy</span>
                 </button>
               </div>
-              <textarea id="clinical-note-box" rows="5" class="ai-box scrollable">Patient attended for routine periodic examination. Oral hygiene discussed...</textarea>
+              <textarea id="clinical-note-box" rows="5" class="ai-box scrollable">Chef prep guideline: Defrost seafood mix at 4C. Hand-roll fresh tagliolini pasta, store in nests. Prepare white wine, garlic, and cherry tomato base. Portion parsley leaves.</textarea>
             </div>
             
             <div class="tool-footer">
               <button class="btn btn-primary btn-full" onclick="generateClinicalNote()">
-                <i data-lucide="sparkles"></i> Regenerate Custom Note
+                <i data-lucide="sparkles"></i> Regenerate Prep Checklist
               </button>
             </div>
           </section>
           
-          <!-- Tool 2: Patient Communication Hub -->
+          <!-- Tool 2: Guest Outreach Hub -->
           <section id="section-comms" class="dashboard-card tool-card">
             <div class="tool-card-header">
               <div class="icon-circle bg-warning-soft">
                 <i data-lucide="mail" class="text-warning"></i>
               </div>
               <div>
-                <h4>Patient Communication Hub</h4>
-                <span class="text-muted">Overdue Recall Campaign</span>
+                <h4>Guest Communication Hub</h4>
+                <span class="text-muted">VIP Outreach & Risk Reduction</span>
               </div>
             </div>
-            <p class="tool-desc">Generate tailored patient outreach communications. Send via preferred communication channels.</p>
+            <p class="tool-desc">Draft promotional campaign copy, VIP event invites, or high-risk booking verification alerts.</p>
             
             <div class="channel-tabs">
               <button class="tab-btn active" id="tab-sms" onclick="setChannel('sms')"><i data-lucide="smartphone"></i> SMS</button>
@@ -514,8 +515,8 @@
             </div>
             
             <div class="form-group mt-2">
-              <label for="comms-recipient">Patient Reference / Name</label>
-              <input type="text" id="comms-recipient" value="Sarah Jenkins (Overdue Recall)">
+              <label for="comms-recipient">Guest/Campaign Target</label>
+              <input type="text" id="comms-recipient" value="Business District Offices (Weekday Lunch Promotion)">
             </div>
             
             <div class="message-output-container">
@@ -526,97 +527,113 @@
                   <span id="copy-msg-text">Copy</span>
                 </button>
               </div>
-              <textarea id="patient-message-box" rows="4" class="ai-box scrollable">Hi Sarah, this is a friendly reminder from Apex Dental Care. You are due for your routine clean. Book online: apex.dental/book</textarea>
+              <textarea id="patient-message-box" rows="4" class="ai-box scrollable">Hi there! Hungry? Join us for our Bistro Express Lunch this Friday. Choose a signature main and wine pairing for just $22. Book now: gastroai.rest/lunch</textarea>
             </div>
             
             <div class="tool-footer">
               <button class="btn btn-warning btn-full" id="btn-send-message" onclick="sendPatientMessage()">
-                <i data-lucide="send"></i> Send Notification
+                <i data-lucide="send"></i> Send Campaign Copy
               </button>
             </div>
           </section>
           
-          <!-- Tool 3: Care Intelligence Dashboard -->
+          <!-- Tool 3: Kitchen & Inventory Automation -->
           <section class="dashboard-card tool-card">
             <div class="tool-card-header">
               <div class="icon-circle bg-success-soft">
-                <i data-lucide="heart-pulse" class="text-success"></i>
+                <i data-lucide="utensils" class="text-success"></i>
               </div>
               <div>
-                <h4>Patient Care Intelligence</h4>
-                <span class="text-muted">Proactive Health Insights</span>
+                <h4>Kitchen & Inventory Hub</h4>
+                <span class="text-muted">Proactive Food & Staff Insights</span>
               </div>
             </div>
-            <p class="tool-desc">AI diagnostic summaries of treatment acceptance and recall statistics. Generate clinical explanations for patients.</p>
+            <p class="tool-desc">Review food waste logs, ingredient shortages, recipe margin analysis, and demystify complex terms for servers.</p>
             
             <div class="care-stats">
               <div class="care-stat-item">
                 <div class="cs-left">
-                  <h5>High Priority Recalls</h5>
-                  <p>Incomplete plan follow-ups</p>
+                  <h5>Ingredient Shortages</h5>
+                  <p>Salmon, sparkling water, tiramisu</p>
                 </div>
-                <span class="badge badge-danger">4 Patients</span>
+                <span class="badge badge-danger">3 Shortages</span>
               </div>
               
               <div class="care-stat-item">
                 <div class="cs-left">
-                  <h5>Preventive Recalls</h5>
-                  <p>Hygiene overdue &gt; 6 mos</p>
+                  <h5>Staff Coverage Gap</h5>
+                  <p>Dinner shift 7:00pm - 9:00pm</p>
                 </div>
-                <span class="badge badge-warning">18 Patients</span>
+                <span class="badge badge-warning">2 Staff Short</span>
               </div>
               
               <div class="care-stat-item">
                 <div class="cs-left">
-                  <h5>AI Patient Edu</h5>
-                  <p>Demystify treatment plan jargon</p>
+                  <h5>AI Service Co-pilot</h5>
+                  <p>Waitstaff training descriptions</p>
                 </div>
                 <span class="badge badge-success">Active</span>
               </div>
             </div>
             
             <div class="form-group mt-3">
-              <label for="edu-term">Translate Clinical Terms to Patient English</label>
+              <label for="edu-term">Explain Cooking Terms to Servers</label>
               <select id="edu-term" onchange="translateEduTerm()">
-                <option value="none">Choose a dental term...</option>
-                <option value="crown">Porcelain Fused to Metal Crown (PFM)</option>
-                <option value="scaling">Scaling & Root Planing (SRP)</option>
-                <option value="rootcanal">Endodontic Therapy (Root Canal)</option>
+                <option value="none">Choose a culinary term...</option>
+                <option value="sousvide">Sous Vide (Vacuum Cooking)</option>
+                <option value="confit">Confit (Slow Poached in Fat)</option>
+                <option value="mirepoix">Mirepoix (Aromatic Vegetable Base)</option>
               </select>
             </div>
             
             <div class="edu-output ai-box scrollable" id="edu-output-box">
-              AI explanation will generate here to help clarify treatment options to patients during follow-up.
+              AI explanation will generate here to help service staff explain preparation styles and allergen profiles to dining guests.
             </div>
           </section>
           
+        </div>
+        
+        <!-- Info Cards Grid -->
+        <div class="content-grid grid-3col mt-4">
+          <div class="dashboard-card p-4">
+            <h4 class="mb-2" style="font-family:'Outfit', sans-serif; font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="clipboard-list" class="text-primary"></i> Inventory Automation</h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Track supplier deliveries, live stock counts, waste statistics, ingredient costing, recipe profit margins, and predictive stockout thresholds.</p>
+          </div>
+          <div class="dashboard-card p-4">
+            <h4 class="mb-2" style="font-family:'Outfit', sans-serif; font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="users" class="text-primary"></i> Admin Automation</h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Reduce manual effort in shift scheduling, double bookings, shift trades, invoice receipts, supplier communications, and daily manager logs.</p>
+          </div>
+          <div class="dashboard-card p-4">
+            <h4 class="mb-2" style="font-family:'Outfit', sans-serif; font-weight:600; display:flex; align-items:center; gap:8px;"><i data-lucide="bar-chart-3" class="text-primary"></i> Business Intelligence</h4>
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.5;">Generate predictive sales forecasts, guest no-show probability sheets, labor cost ratios, dish profit analyses, and local marketing impact reports.</p>
+          </div>
         </div>
         
       </div>
       
     </main>
     
-  </div>
-  
-  <!-- Detail Modal Overlay (For Alert Patient Lists, etc.) -->
-  <div id="details-modal" class="modal-overlay">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 id="modal-title">Alert Details</h3>
-        <button class="modal-close" onclick="closeModal()">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-      <div class="modal-body" id="modal-content">
-        <!-- Dynamic modal contents -->
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="closeModal()">Close</button>
-        <button class="btn btn-primary" id="modal-primary-btn">Take Action</button>
+    <!-- Detail Modal Overlay -->
+    <div id="details-modal" class="modal-overlay">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3 id="modal-title">Alert Details</h3>
+          <button class="modal-close" onclick="closeModal()">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-content">
+          <!-- Dynamic modal contents -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+          <button class="btn btn-primary" id="modal-primary-btn">Take Action</button>
+        </div>
       </div>
     </div>
+    
   </div>
-
+  
   <!-- Main JavaScript File -->
   <script type="module" src="/src/main.js"></script>
 </body>
